@@ -20,9 +20,9 @@
         .container { max-width: 1300px; margin: 0 auto; padding: 0 24px; }
         section { padding: 100px 0; border-bottom: 1px solid rgba(204,0,0,0.3); }
         .navbar { padding: 20px 0; position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 2px solid #cc0000; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1300px; margin: 0 auto; padding: 0 24px; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1300px; margin: 0 auto; padding: 0 24px; flex-wrap: wrap; gap: 15px; }
         .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: #cc0000; }
-        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links { display: flex; gap: 30px; align-items: center; flex-wrap: wrap; }
         .nav-links a { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1px; color: white; text-decoration: none; transition: 0.3s; }
         .nav-links a:hover { color: #cc0000; }
         .btn-nav { padding: 6px 20px; font-size: 1rem; }
@@ -58,11 +58,20 @@
         footer { background: #000000; padding: 50px 0 30px; text-align: center; color: #888; border-top: 2px solid #cc0000; }
         .social-links a { color: white; font-size: 1.5rem; margin: 0 15px; transition: 0.3s; }
         .social-links a:hover { color: #cc0000; }
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } h2 { font-size: 1.6rem; } section { padding: 60px 0; } .nav-links { display: none; } .timeline-item { flex-direction: column; gap: 8px; } .timeline-time { min-width: auto; } }
         .count-badge { background: #cc0000; padding: 5px 14px; font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; display: inline-block; }
         p, .card p, .timeline-item div:not(.timeline-time) { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 1rem; color: #d0d0d0; }
         strong { color: #ffffff; font-weight: 700; }
         .contact-phones { margin-top: 10px; font-size: 0.9rem; color: #cc0000; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.6rem; }
+            section { padding: 60px 0; }
+            .nav-container { flex-direction: column; }
+            .nav-links { justify-content: center; gap: 15px; }
+            .timeline-item { flex-direction: column; gap: 8px; }
+            .timeline-time { min-width: auto; }
+        }
     </style>
 </head>
 <body>
@@ -86,7 +95,7 @@
     <!-- Связь с организаторами (отдельная секция) -->
     <section id="contact"><div class="container"><h2>📞 СВЯЗЬ С ОРГАНИЗАТОРАМИ</h2><div class="card" style="text-align: center;"><p style="font-size: 1.2rem;">Если у вас есть вопросы, звоните или пишите в WhatsApp:</p><div class="contact-phones"><strong>📱 +7 (960) 140-14-45</strong><br><strong>📱 +7 (904) 693-53-35</strong></div><p style="margin-top: 15px;"><i class="fab fa-vk"></i> <a href="https://vk.com/id38195847" target="_blank" style="color: #cc0000;">Написать в VK</a></p></div></div></section>
 
-    <!-- Модальное окно бронирования (с кнопкой телефонов) -->
+    <!-- Модальное окно бронирования -->
     <div id="bookingModal" class="modal"><div class="modal-content"><span class="modal-close" id="closeModal">&times;</span><h3>🎫 БРОНИРОВАНИЕ МЕСТА</h3><div class="radio-group" id="tariffRadios"><label><input type="radio" name="tariff" value="Зритель - 500 руб"> <strong>Зритель</strong> — 500 ₽</label><label><input type="radio" name="tariff" value="Участник - 1000 руб"> <strong>Участник</strong> — 1000 ₽</label><label><input type="radio" name="tariff" value="Участник + Группа поддержки - 1500 руб"> <strong>Участник + Группа поддержки</strong> — 1500 ₽</label></div><div class="form-group"><label>ИМЯ И ФАМИЛИЯ УЧАСТНИКА *</label><input type="text" id="participantName" placeholder="Иван Иванов"></div><button id="submitBookingBtn" class="btn" style="width: 100%;" disabled>ЗАБРОНИРОВАТЬ</button>
     <button id="modalPhonesBtn" class="btn btn-small" style="width: 100%; margin-top: 15px; background: #333;">📞 Связаться с организаторами</button>
     <p style="font-size: 0.7rem; margin-top: 20px; text-align: center;">После заполнения формы станет активной кнопка бронирования</p></div></div>
@@ -128,7 +137,6 @@
         document.getElementById('closeModal').addEventListener('click', closeModal);
         window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
         
-        // Бронирование
         submitBtn.addEventListener('click', async () => {
             const name = participantNameInput.value.trim();
             if (!name || !selectedTariff) return;
@@ -144,12 +152,10 @@
             closeModal();
         });
         
-        // Кнопка телефонов в модальном окне
         document.getElementById('modalPhonesBtn').addEventListener('click', () => {
             alert('📞 Свяжитесь с организаторами по телефону:\n\n+7 (960) 140-14-45\n+7 (904) 693-53-35');
         });
         
-        // Плавная прокрутка для новой вкладки "СВЯЗЬ"
         document.getElementById('contactNavLink').addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
