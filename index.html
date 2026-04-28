@@ -78,7 +78,18 @@
 
     <div id="bookingModal" class="modal"><div class="modal-content"><span class="modal-close" id="closeModal">&times;</span><h3>🎫 БРОНИРОВАНИЕ МЕСТА</h3><div class="radio-group" id="tariffRadios"><label><input type="radio" name="tariff" value="Зритель - 500 руб"> <strong>Зритель</strong> — 500 ₽</label><label><input type="radio" name="tariff" value="Участник - 1000 руб"> <strong>Участник</strong> — 1000 ₽</label><label><input type="radio" name="tariff" value="Участник + Группа поддержки - 1500 руб"> <strong>Участник + Группа поддержки</strong> — 1500 ₽</label></div><div class="form-group"><label>ИМЯ И ФАМИЛИЯ УЧАСТНИКА *</label><input type="text" id="participantName" placeholder="Иван Иванов"></div><button id="submitBookingBtn" class="btn" style="width: 100%;" disabled>ЗАБРОНИРОВАТЬ</button><p style="font-size: 0.7rem; margin-top: 20px; text-align: center;">После заполнения формы станет активной кнопка бронирования</p></div></div>
 
-    <footer><div class="container"><div class="social-links"><a href="https://vk.com/id38195847" target="_blank"><i class="fab fa-vk"></i></a></div><p>© 2026 Музыкальный Квиз | <a href="https://vk.com/id38195847" target="_blank" style="color: #cc0000;">ОРГАНИЗАТОР</a></p><p style="margin-top: 8px;">📍 Липецк, ул. Ленина, 31а</p></div></footer>
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://vk.com/id38195847" target="_blank"><i class="fab fa-vk"></i></a>
+            </div>
+            <button id="showPhonesBtn" class="btn" style="margin-top: 20px; background: #333; font-size: 1rem; padding: 10px 25px;">
+                📞 Связаться с организаторами
+            </button>
+            <p style="margin-top: 20px;">© 2026 Музыкальный Квиз | <a href="https://vk.com/id38195847" target="_blank" style="color: #cc0000;">ОРГАНИЗАТОР</a></p>
+            <p style="margin-top: 8px;">📍 Липецк, ул. Ленина, 31а</p>
+        </div>
+    </footer>
 
     <script>
         const modal = document.getElementById('bookingModal');
@@ -115,7 +126,6 @@
         document.getElementById('closeModal').addEventListener('click', closeModal);
         window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
         
-        // НАДЁЖНАЯ ОТПРАВКА (КОПИРОВАНИЕ + ПЕРЕХОД В ВК)
         submitBtn.addEventListener('click', async () => {
             const name = participantNameInput.value.trim();
             if (!name || !selectedTariff) return;
@@ -135,13 +145,22 @@
                 return;
             }
 
-            // Переход на страницу организатора ВК
             location.href = 'https://vk.com/id38195847';
-
             alert('✅ Текст заявки скопирован в буфер обмена!\n\nОткройте диалог с организатором (откроется автоматически) и вставьте текст (Ctrl+V / долгое нажатие → Вставить).');
-
             closeModal();
         });
+
+        // Кнопка показа телефонов
+        const showPhonesBtn = document.getElementById('showPhonesBtn');
+        if (showPhonesBtn) {
+            showPhonesBtn.addEventListener('click', () => {
+                const phones = [
+                    '+7 (960) 140-14-45',
+                    '+7 (904) 693-53-35'
+                ];
+                alert(`📞 Свяжитесь с организаторами по телефону:\n\n${phones.join('\n')}`);
+            });
+        }
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
