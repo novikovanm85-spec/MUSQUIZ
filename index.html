@@ -283,13 +283,13 @@
             `;
             instructionBox.style.display = 'block';
             
-            // Через 4 секунды открываем ВК и закрываем окно
+            // >>> ЗДЕСЬ ИЗМЕНЕНИЕ: 4 секунды → 10 секунд <<<
             setTimeout(() => {
                 window.location.href = 'https://vk.com/im?sel=38195847';
                 setTimeout(() => {
                     closeModal();
                 }, 500);
-            }, 4000);
+            }, 10000);  // 10000 миллисекунд = 10 секунд
         });
         
         const modalPhonesBtn = document.getElementById('modalPhonesBtn');
