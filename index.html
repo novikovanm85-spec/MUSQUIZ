@@ -115,31 +115,33 @@
         document.getElementById('closeModal').addEventListener('click', closeModal);
         window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
         
-        // ★★★ ИСПРАВЛЕННЫЙ БЛОК ОТПРАВКИ ★★★
-        submitBtn.addEventListener('click', () => {
+        // НАДЁЖНАЯ ОТПРАВКА (КОПИРОВАНИЕ + ПЕРЕХОД В ВК)
+        submitBtn.addEventListener('click', async () => {
             const name = participantNameInput.value.trim();
             if (!name || !selectedTariff) return;
+
             let msg = `🎵 НОВАЯ ЗАЯВКА НА МУЗЫКАЛЬНЫЙ КВИЗ 🎵\n\n`;
             msg += `Участник: ${name}\n`;
             msg += `Тариф: ${selectedTariff}\n`;
-            msg += `Дата: 28.05.2026 18:00\nМесто: Липецк, ул. Ленина, 31а\n\n---\nОжидайте подтверждения.`;
+            msg += `Дата: 28.05.2026 18:00\n`;
+            msg += `Место: Липецк, ул. Ленина, 31а\n\n`;
+            msg += `---\nОжидайте подтверждения.`;
 
-            // НАДЁЖНАЯ ССЫЛКА НА ДИАЛОГ ВК
-            const vkUrl = `https://vk.com/im?sel=38195847&text=${encodeURIComponent(msg)}`;
-            const w = window.open(vkUrl, '_blank');
-
-            if (!w) {
-                // Если блокировщик всплывающих окон — копируем текст в буфер
-                navigator.clipboard.writeText(msg)
-                    .then(() => alert('❌ Не удалось открыть ВК. Сообщение скопировано в буфер обмена. Вставьте его в диалог с организатором вручную.'))
-                    .catch(() => alert('❌ Не удалось открыть ВК. Пожалуйста, напишите организатору вручную.'));
-            } else {
-                alert('✅ Заявка сформирована! Отправьте сообщение во вкладке ВК.');
+            try {
+                await navigator.clipboard.writeText(msg);
+            } catch(e) {
+                alert('❌ Не удалось скопировать текст. Напишите заявку вручную.');
+                closeModal();
+                return;
             }
+
+            // Переход на страницу организатора ВК
+            location.href = 'https://vk.com/id38195847';
+
+            alert('✅ Текст заявки скопирован в буфер обмена!\n\nОткройте диалог с организатором (откроется автоматически) и вставьте текст (Ctrl+V / долгое нажатие → Вставить).');
 
             closeModal();
         });
-        // ★★★ КОНЕЦ ИСПРАВЛЕННОГО БЛОКА ★★★
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
