@@ -15,11 +15,10 @@
             line-height: 1.5;
             scroll-behavior: smooth;
             min-height: 100vh;
-            /* Фоновая картинка с группами */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect width="800" height="600" fill="black"/><text x="50" y="50" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">Наутилус</text><text x="50" y="90" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">Pompilius</text><text x="50" y="130" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">НОИВ</text><text x="50" y="170" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">Кинчев</text><text x="50" y="210" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">СПИН</text><text x="50" y="250" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">БИ-2</text><text x="50" y="290" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">КИШОВ</text><text x="50" y="330" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">МОСТ.</text><text x="50" y="370" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">АКВАРИУМ</text><text x="500" y="70" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">ДДТ</text><text x="500" y="110" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">ФАНТ</text><text x="500" y="150" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">ТЕЛЕЦ</text><text x="500" y="190" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">КОРЕ</text><text x="500" y="230" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">The Lux&amp;Co</text><text x="500" y="270" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">МЫСТЕР</text><text x="500" y="310" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">ГЛАДЕНИЙ</text><text x="500" y="350" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">ТРАКАНИЙ</text><text x="500" y="390" fill="%23cc0000" opacity="0.3" font-size="24" font-family="Arial">КРЕМАГОРЬ</text><text x="300" y="450" fill="%23cc0000" opacity="0.25" font-size="28" font-family="Arial">РОК-КВИЗ 2026</text></svg>');
-            background-repeat: repeat;
-            background-position: top left;
-            background-size: auto;
+            /* РЕАЛЬНЫЙ РОК-ФОН (фото концерта) */
+            background-image: url('https://images.unsplash.com/photo-1498038432885-c6e3fb1b910e?q=80&w=2070&auto=format');
+            background-size: cover;
+            background-position: center;
             background-attachment: fixed;
             position: relative;
         }
@@ -63,7 +62,7 @@
         .hero-details i { color: #cc0000; margin-right: 10px; }
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background: rgba(10,10,10,0.8); backdrop-filter: blur(2px); padding: 30px; border: 1px solid rgba(204,0,0,0.3); transition: all 0.3s; }
+        .card { background: rgba(10,10,10,0.85); backdrop-filter: blur(2px); padding: 30px; border: 1px solid rgba(204,0,0,0.3); transition: all 0.3s; }
         .card:hover { transform: translateY(-5px); border-color: #cc0000; box-shadow: 0 20px 40px rgba(204,0,0,0.2); }
         .tariff-card { text-align: center; }
         .tariff-price { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: #cc0000; margin: 20px 0; }
