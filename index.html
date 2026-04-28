@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Музыкальный Квиз | Битва команд 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <title>ROCK-КВИЗ | Битва команд 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Rubik+Glitch&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -15,15 +15,15 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #07070f;
+            background-color: #000000;
             color: #ffffff;
             line-height: 1.5;
             scroll-behavior: smooth;
         }
 
-        /* Градиентные тексты и акценты */
+        /* Рок-акценты */
         .gradient-text {
-            background: linear-gradient(135deg, #ff3366, #ff00cc, #6600ff);
+            background: linear-gradient(135deg, #ff0000, #cc0000, #8b0000);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -31,33 +31,36 @@
 
         .btn {
             display: inline-block;
-            background: linear-gradient(95deg, #ff3366, #ff00cc);
+            background: linear-gradient(95deg, #cc0000, #8b0000);
             color: white;
-            font-weight: 700;
+            font-weight: 800;
             padding: 16px 40px;
-            border-radius: 60px;
+            border-radius: 0px;
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 1rem;
             border: none;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(255,51,102,0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
         }
 
         .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(255,51,102,0.5);
+            background: linear-gradient(95deg, #ff2222, #aa0000);
+            transform: scale(1.02);
+            letter-spacing: 3px;
         }
 
         .btn-outline {
             background: transparent;
-            border: 2px solid #ff3366;
+            border: 2px solid #cc0000;
             box-shadow: none;
         }
 
         .btn-outline:hover {
-            background: #ff3366;
-            transform: scale(1.05);
+            background: #cc0000;
+            color: black;
         }
 
         .container {
@@ -68,14 +71,26 @@
 
         section {
             padding: 100px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 2px solid rgba(204,0,0,0.3);
+            position: relative;
+        }
+
+        section::before {
+            content: "⚡";
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            font-size: 1.5rem;
+            opacity: 0.3;
+            color: #cc0000;
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 900;
             line-height: 1.1;
             letter-spacing: -0.02em;
+            font-family: 'Rubik Glitch', monospace;
         }
 
         h2 {
@@ -83,6 +98,9 @@
             font-weight: 800;
             margin-bottom: 1rem;
             letter-spacing: -0.01em;
+            text-transform: uppercase;
+            border-left: 5px solid #cc0000;
+            padding-left: 20px;
         }
 
         h3 {
@@ -91,16 +109,16 @@
             margin-bottom: 1rem;
         }
 
-        /* Шапка */
+        /* Рок-навбар */
         .navbar {
             padding: 20px 0;
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(7,7,15,0.95);
+            background: rgba(0,0,0,0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 2px solid #cc0000;
         }
 
         .nav-container {
@@ -115,6 +133,8 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
+            font-family: 'Rubik Glitch', monospace;
+            color: #cc0000;
         }
 
         .nav-links {
@@ -127,10 +147,12 @@
             color: white;
             text-decoration: none;
             transition: 0.3s;
+            text-transform: uppercase;
+            font-weight: 600;
         }
 
         .nav-links a:hover {
-            color: #ff3366;
+            color: #cc0000;
         }
 
         .btn-nav {
@@ -143,18 +165,18 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(7,7,15,0.95), rgba(7,7,15,0.8)), url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2070&auto=format') center/cover fixed;
+            background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1501612780327-45045538702b?q=80&w=2070&auto=format') center/cover fixed;
             padding-top: 80px;
         }
 
         .hero-badge {
-            background: rgba(255,51,102,0.2);
+            background: rgba(204,0,0,0.2);
             padding: 8px 20px;
-            border-radius: 40px;
             font-size: 0.85rem;
             font-weight: 600;
             display: inline-block;
             margin-bottom: 20px;
+            border-left: 3px solid #cc0000;
         }
 
         .hero-content {
@@ -169,11 +191,11 @@
         }
 
         .hero-details i {
-            color: #ff3366;
+            color: #cc0000;
             margin-right: 10px;
         }
 
-        /* Карточки */
+        /* Карточки в рок-стиле */
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -189,18 +211,28 @@
         }
 
         .card {
-            background: rgba(20,20,35,0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 32px;
+            background: #0a0a0a;
             padding: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(204,0,0,0.3);
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "♫";
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 5rem;
+            opacity: 0.1;
+            font-family: monospace;
         }
 
         .card:hover {
+            border-color: #cc0000;
             transform: translateY(-5px);
-            border-color: rgba(255,51,102,0.5);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(204,0,0,0.2);
         }
 
         .tariff-card {
@@ -210,11 +242,11 @@
         .tariff-price {
             font-size: 2rem;
             font-weight: 800;
-            color: #ff3366;
+            color: #cc0000;
             margin: 20px 0;
         }
 
-        /* Программа */
+        /* Рок-таймлайн */
         .timeline {
             margin-top: 40px;
         }
@@ -224,18 +256,25 @@
             gap: 30px;
             margin-bottom: 30px;
             padding: 20px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 20px;
-            border-left: 4px solid #ff3366;
+            background: rgba(204,0,0,0.05);
+            border-left: 4px solid #cc0000;
+            transition: 0.3s;
+        }
+
+        .timeline-item:hover {
+            background: rgba(204,0,0,0.1);
+            transform: translateX(10px);
         }
 
         .timeline-time {
             min-width: 150px;
             font-weight: 800;
-            color: #ff3366;
+            color: #cc0000;
+            font-family: monospace;
+            font-size: 1.1rem;
         }
 
-        /* Форма */
+        /* Модальное окно */
         .modal {
             display: none;
             position: fixed;
@@ -243,7 +282,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.95);
             backdrop-filter: blur(8px);
             z-index: 2000;
             justify-content: center;
@@ -255,12 +294,11 @@
         }
 
         .modal-content {
-            background: #0f0f1a;
-            border-radius: 48px;
+            background: #0a0a0a;
             padding: 40px;
             max-width: 500px;
             width: 90%;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 2px solid #cc0000;
             position: relative;
         }
 
@@ -281,14 +319,15 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.8rem;
         }
 
         .form-group input, .form-group select {
             width: 100%;
             padding: 15px;
-            background: #1a1a2e;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 30px;
+            background: #1a1a1a;
+            border: 1px solid #333;
             color: white;
             font-family: inherit;
             font-size: 1rem;
@@ -296,32 +335,33 @@
 
         .form-group input:focus, .form-group select:focus {
             outline: none;
-            border-color: #ff3366;
+            border-color: #cc0000;
         }
 
         .selected-tariff {
-            background: #1a1a2e;
+            background: #1a0000;
             padding: 10px;
-            border-radius: 20px;
             text-align: center;
             margin-bottom: 20px;
-            color: #ff3366;
+            color: #cc0000;
             font-weight: bold;
+            border-left: 3px solid #cc0000;
         }
 
         /* Карта */
         .map {
-            border-radius: 32px;
             overflow: hidden;
             margin-top: 30px;
+            border: 2px solid #cc0000;
         }
 
         /* Футер */
         footer {
-            background: #030308;
+            background: #000000;
             padding: 60px 0 30px;
             text-align: center;
-            color: #aaa;
+            color: #666;
+            border-top: 2px solid #cc0000;
         }
 
         .social-links a {
@@ -332,7 +372,8 @@
         }
 
         .social-links a:hover {
-            color: #ff3366;
+            color: #cc0000;
+            transform: scale(1.2);
         }
 
         @media (max-width: 768px) {
@@ -345,11 +386,11 @@
         }
 
         .count-badge {
-            background: #ff3366;
+            background: #cc0000;
             padding: 4px 12px;
-            border-radius: 30px;
             font-size: 0.8rem;
             font-weight: bold;
+            display: inline-block;
         }
     </style>
 </head>
@@ -357,13 +398,13 @@
     <!-- Навигация -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">🎵 <span class="gradient-text">MusicQuiz</span></div>
+            <div class="logo">🎸 <span class="gradient-text">ROCK QUIZ</span></div>
             <div class="nav-links">
-                <a href="#program">Программа</a>
-                <a href="#rules">Правила</a>
-                <a href="#tariffs">Тарифы</a>
-                <a href="#location">Место</a>
-                <a href="#booking" class="btn btn-nav" id="navBookingBtn">Забронировать</a>
+                <a href="#program">Program</a>
+                <a href="#rules">Rules</a>
+                <a href="#tariffs">Tickets</a>
+                <a href="#location">Location</a>
+                <a href="#booking" class="btn btn-nav" id="navBookingBtn">Book now</a>
             </div>
         </div>
     </nav>
@@ -372,60 +413,58 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">🔥 Ограниченное количество мест</div>
-                <h1>Музыкальный<br><span class="gradient-text">Квиз | Битва</span></h1>
-                <p style="font-size: 1.2rem; margin: 20px 0 10px;">Проверь свою эрудицию, сразись с лучшими командами и стань чемпионом!</p>
+                <div class="hero-badge">⚠️ LIMITED EDITION ⚠️</div>
+                <h1>ROCK<br>MUSIC<br><span class="gradient-text">BATTLE</span></h1>
+                <p style="font-size: 1.2rem; margin: 20px 0 10px;">Панк-рок, металл, рок-эрудиция — кто знает больше? Только настоящие фанаты выживают!</p>
                 
                 <div class="hero-details">
-                    <div><i class="fas fa-calendar-alt"></i> <strong>28 мая 2026</strong><br>18:00</div>
+                    <div><i class="fas fa-calendar-alt"></i> <strong>28.05.2026</strong><br>18:00</div>
                     <div><i class="fas fa-map-marker-alt"></i> <strong>Липецк</strong><br>ул. Ленина, 31а</div>
-                    <div><i class="fas fa-users"></i> <strong>Команды 6 человек</strong><br>6+ команд</div>
+                    <div><i class="fas fa-users"></i> <strong>Buddy 6 slot</strong><br>6 человек в команде</div>
                 </div>
                 
-                <button class="btn" id="heroBookingBtn">🎤 Забронировать место для команды →</button>
+                <button class="btn" id="heroBookingBtn">⚡ GET TICKET ⚡</button>
             </div>
         </div>
     </section>
 
-    <!-- О программе -->
+    <!-- Программа -->
     <section id="program">
         <div class="container">
-            <h2 style="text-align: center;">🎵 <span class="gradient-text">Программа мероприятия</span></h2>
-            <p style="text-align: center; margin-bottom: 40px;">Насыщенный вечер музыки, интеллекта и драйва</p>
-            
+            <h2>🎵 SETLIST / SCHEDULE</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-time">18:00 – 18:30</div>
-                    <div><strong>Отборочный тур</strong><br>Быстрые вопросы, разминка для команд. Определяем первых лидеров.</div>
+                    <div><strong>WARM-UP ROUND</strong><br>Отборочный тур — быстрые вопросы, настройка на битву.</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-time">18:30 – 19:30</div>
-                    <div><strong>Основные туры</strong><br>Тематические раунды: «Клип-мозаика», «Угадай по нотам», «История хита», «Киномузыка».</div>
+                    <div><strong>MAIN BATTLE</strong><br>Главные туры: «Клип-мозаика», «Угадай рифф», «Рок-история».</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-time">19:30 – 20:00</div>
-                    <div><strong>🎸 Музыкальная пауза</strong><br>Живое выступление, розыгрыш мерча и отдых для участников.</div>
+                    <div><strong>⚡ POWER BREAK ⚡</strong><br>Музыкальная пауза, розыгрыш мерча, гитарные соло.</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-time">20:00 – 20:45</div>
-                    <div><strong>Финальный тур</strong><br>Битва сильнейших. Самые сложные вопросы и решающие баллы.</div>
+                    <div><strong>FINAL ROUND</strong><br>Финальный тур — битва сильнейших под рок-аккорды.</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-time">20:45 – 21:30</div>
-                    <div><strong>🏆 Определение победителей и награждение</strong><br>Подсчёт очков, церемония награждения и финальное фото.</div>
+                    <div><strong>🏆 WINNERS CEREMONY</strong><br>Награждение победителей и финальное рок-фото.</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Правила -->
-    <section id="rules" style="background: linear-gradient(145deg, #0a0a12, #050508);">
+    <section id="rules" style="background: #020202;">
         <div class="container">
-            <h2 style="text-align: center;">📜 <span class="gradient-text">Правила игры</span></h2>
+            <h2>📜 RULES OF THE GAME</h2>
             <div class="card" style="margin-top: 30px; text-align: center;">
-                <p style="font-size: 1.1rem; margin-bottom: 15px;">Здесь будут подробные правила. Они появятся позже.</p>
-                <p>Команды из 6 человек соревнуются в музыкальной эрудиции. Побеждает команда, набравшая больше всего очков.</p>
-                <p style="margin-top: 10px;">👑 Честная игра, быстрые кнопки и никаких спойлеров!</p>
+                <p style="font-size: 1.1rem; margin-bottom: 15px;">Здесь будут подробные правила игры.</p>
+                <p>Команды из 6 человек соревнуются в рок-эрудиции. Побеждает команда, набравшая максимум очков.</p>
+                <p style="margin-top: 10px;">👑 No cheating — только чистая энергия рока!</p>
             </div>
         </div>
     </section>
@@ -433,84 +472,82 @@
     <!-- Тарифы -->
     <section id="tariffs">
         <div class="container">
-            <h2 style="text-align: center;">💰 <span class="gradient-text">Выберите тип участия</span></h2>
-            <p style="text-align: center; margin-bottom: 40px;">Каждый найдет свой формат</p>
-            
+            <h2>💰 TICKET PACKAGES</h2>
             <div class="grid-3">
                 <div class="card tariff-card">
-                    <i class="fas fa-microphone-alt" style="font-size: 2.5rem; color: #ff3366;"></i>
-                    <h3>Участник</h3>
+                    <i class="fas fa-guitar" style="font-size: 2.5rem; color: #cc0000;"></i>
+                    <h3>MUSICIAN</h3>
                     <div class="tariff-price">1000 ₽</div>
-                    <p>Полное участие в квизе, борьба за призы, море эмоций.</p>
-                    <button class="btn" style="margin-top: 20px;" data-tariff="Участник - 1000 руб">Выбрать</button>
+                    <p>Полное участие в битве, шанс на призы, драйв и адреналин.</p>
+                    <button class="btn" style="margin-top: 20px;" data-tariff="MUSICIAN - 1000 руб">SELECT</button>
                 </div>
                 <div class="card tariff-card">
-                    <i class="fas fa-eye" style="font-size: 2.5rem; color: #ff3366;"></i>
-                    <h3>Зритель</h3>
+                    <i class="fas fa-eye" style="font-size: 2.5rem; color: #cc0000;"></i>
+                    <h3>ROCK FAN</h3>
                     <div class="tariff-price">500 ₽</div>
-                    <p>Поддержка команд, участие в конкурсах для зрителей, атмосфера праздника.</p>
-                    <button class="btn" style="margin-top: 20px;" data-tariff="Зритель - 500 руб">Выбрать</button>
+                    <p>Поддержка команды, конкурсы для зрителей, рок-атмосфера.</p>
+                    <button class="btn" style="margin-top: 20px;" data-tariff="ROCK FAN - 500 руб">SELECT</button>
                 </div>
                 <div class="card tariff-card">
-                    <i class="fas fa-star" style="font-size: 2.5rem; color: #ff3366;"></i>
-                    <h3>Участник + Группа поддержки</h3>
+                    <i class="fas fa-star" style="font-size: 2.5rem; color: #cc0000;"></i>
+                    <h3>ROCK STAR</h3>
                     <div class="tariff-price">1500 ₽</div>
-                    <p>Участие в квизе + отдельная зона для болельщиков + приветственный напиток.</p>
-                    <button class="btn" style="margin-top: 20px;" data-tariff="Участник + Группа поддержки - 1500 руб">Выбрать</button>
+                    <p>Участие в битве + VIP-зона + приветственный напиток.</p>
+                    <button class="btn" style="margin-top: 20px;" data-tariff="ROCK STAR - 1500 руб">SELECT</button>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 40px;">
-                <div class="count-badge" style="display: inline-block; margin-right: 10px;">⚡</div>
-                <span>Количество мест ограничено! Успейте забронировать.</span>
+                <div class="count-badge">⚠️</div>
+                <span style="margin-left: 10px;">количество мест ограничено! не упусти свой шанс</span>
             </div>
         </div>
     </section>
 
-    <!-- Место проведения -->
+    <!-- Место -->
     <section id="location">
         <div class="container">
-            <h2 style="text-align: center;">📍 <span class="gradient-text">Место проведения</span></h2>
+            <h2>📍 VENUE</h2>
             <div class="grid-2">
                 <div>
                     <h3>Библиотечно-информационный центр им. П.И. Бартенева</h3>
-                    <p><i class="fas fa-map-pin" style="color: #ff3366;"></i> ул. Ленина, 31а, Липецк, Липецкая обл., 398020</p>
-                    <p style="margin-top: 20px;">Уютный зал, отличная акустика, удобная парковка.</p>
-                    <p>🅿️ Бесплатная парковка для гостей.</p>
+                    <p><i class="fas fa-map-pin" style="color: #cc0000;"></i> ул. Ленина, 31а, Липецк</p>
+                    <p style="margin-top: 20px;">Рок-драйв в самом центре города. Отличный звук и свет.</p>
+                    <p>🅿️ Парковка для рокеров бесплатная.</p>
                 </div>
                 <div class="map">
-                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1f3b5c5f5a2d9f2e8f3b8c9d7e6f5a4b3c2d1e0f1a2b3c4d5e6f7a8b9c0d1e2f3&source=constructor" width="100%" height="300" frameborder="0" style="border:0; border-radius: 28px;" allowfullscreen></iframe>
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1f3b5c5f5a2d9f2e8f3b8c9d7e6f5a4b3c2d1e0f1a2b3c4d5e6f7a8b9c0d1e2f3&source=constructor" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Форма бронирования (модальное окно) -->
+    <!-- Модальное окно -->
     <div id="bookingModal" class="modal">
         <div class="modal-content">
             <span class="modal-close" id="closeModal">&times;</span>
-            <h3 style="margin-bottom: 20px;">🎫 Бронирование места</h3>
+            <h3 style="margin-bottom: 20px;">🎸 BOOK YOUR SPOT</h3>
             <div id="selectedTariffDisplay" class="selected-tariff"></div>
             <form id="bookingForm">
                 <div class="form-group">
-                    <label>Название команды *</label>
-                    <input type="text" id="teamName" required placeholder="Например: Громкие сердца">
+                    <label>TEAM NAME *</label>
+                    <input type="text" id="teamName" required placeholder="Iron Maiden, etc">
                 </div>
                 <div class="form-group">
-                    <label>Имя и фамилия участника (капитана) *</label>
-                    <input type="text" id="participantName" required placeholder="Иван Иванов">
+                    <label>YOUR NAME (CAPTAIN) *</label>
+                    <input type="text" id="participantName" required placeholder="John Doe">
                 </div>
                 <div class="form-group">
-                    <label>Количество участников в команде *</label>
+                    <label>TEAM SIZE *</label>
                     <input type="number" id="membersCount" value="6" min="1" max="10" required>
                 </div>
                 <div class="form-group">
-                    <label>Выбранный тариф</label>
-                    <input type="text" id="tariffInput" readonly style="background: #2a2a40;">
+                    <label>SELECTED TARIFF</label>
+                    <input type="text" id="tariffInput" readonly style="background: #2a0000;">
                 </div>
-                <button type="submit" class="btn" style="width: 100%;">Отправить заявку →</button>
+                <button type="submit" class="btn" style="width: 100%;">SEND REQUEST →</button>
             </form>
-            <p style="font-size: 0.8rem; margin-top: 20px; text-align: center;">После отправки вы перейдёте в ВК для подтверждения</p>
+            <p style="font-size: 0.7rem; margin-top: 20px; text-align: center;">После отправки вы перейдёте в VK для подтверждения</p>
         </div>
     </div>
 
@@ -519,13 +556,12 @@
             <div class="social-links">
                 <a href="https://vk.com/id38195847" target="_blank"><i class="fab fa-vk"></i></a>
             </div>
-            <p style="margin-top: 20px;">© 2026 Музыкальный Квиз | Организатор: <a href="https://vk.com/id38195847" target="_blank" style="color: #ff3366;">Напишите нам</a></p>
-            <p style="margin-top: 10px; font-size: 0.8rem;">г. Липецк, ул. Ленина, 31а</p>
+            <p style="margin-top: 20px;">© 2026 ROCK QUIZ | <a href="https://vk.com/id38195847" target="_blank" style="color: #cc0000;">CONTACT US</a></p>
+            <p style="margin-top: 10px; font-size: 0.7rem;">📍 Липецк, ул. Ленина, 31а</p>
         </div>
     </footer>
 
     <script>
-        // Переменные
         let selectedTariff = '';
         const modal = document.getElementById('bookingModal');
         const selectedTariffDisplay = document.getElementById('selectedTariffDisplay');
@@ -534,18 +570,15 @@
         const participantNameInput = document.getElementById('participantName');
         const membersCountInput = document.getElementById('membersCount');
         
-        // Открытие модального окна с выбором тарифа
         function openModal(tariff) {
             selectedTariff = tariff;
-            selectedTariffDisplay.innerText = `Выбран тариф: ${selectedTariff}`;
+            selectedTariffDisplay.innerText = `Selected: ${selectedTariff}`;
             tariffInput.value = selectedTariff;
             modal.classList.add('active');
         }
         
-        // Закрытие модального окна
         function closeModal() {
             modal.classList.remove('active');
-            // Очищаем форму
             teamNameInput.value = '';
             participantNameInput.value = '';
             membersCountInput.value = '6';
@@ -554,7 +587,6 @@
             tariffInput.value = '';
         }
         
-        // Кнопки выбора тарифа
         document.querySelectorAll('[data-tariff]').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const tariff = btn.getAttribute('data-tariff');
@@ -562,22 +594,17 @@
             });
         });
         
-        // Кнопки "Забронировать" в шапке и hero
-        document.getElementById('heroBookingBtn').addEventListener('click', () => {
-            openModal('');
-        });
+        document.getElementById('heroBookingBtn').addEventListener('click', () => openModal(''));
         document.getElementById('navBookingBtn').addEventListener('click', (e) => {
             e.preventDefault();
             openModal('');
         });
         
-        // Закрытие модального окна
         document.getElementById('closeModal').addEventListener('click', closeModal);
         window.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
         
-        // Отправка формы в ВК
         document.getElementById('bookingForm').addEventListener('submit', (e) => {
             e.preventDefault();
             
@@ -587,37 +614,28 @@
             const tariff = tariffInput.value;
             
             if (!teamName || !participantName || !membersCount) {
-                alert('Пожалуйста, заполните все поля');
+                alert('Заполните все поля, rockstar!');
                 return;
             }
             
-            // Формируем сообщение для ВК
-            let message = `🎵 НОВАЯ ЗАЯВКА НА МУЗЫКАЛЬНЫЙ КВИЗ 🎵\n\n`;
-            message += `🏷️ Название команды: ${teamName}\n`;
-            message += `👤 Участник (капитан): ${participantName}\n`;
-            message += `👥 Количество участников: ${membersCount}\n`;
-            message += `💰 Тариф: ${tariff || 'Не выбран'}\n`;
-            message += `📅 Дата: 28.05.2026 18:00\n`;
-            message += `📍 Место: Липецк, ул. Ленина, 31а\n`;
-            message += `\n---\nОжидайте подтверждения от организатора.`;
+            let message = `🎸🔥 НОВАЯ ЗАЯВКА НА ROCK-КВИЗ 🔥🎸\n`;
+            message += `Команда: ${teamName}\n`;
+            message += `Капитан: ${participantName}\n`;
+            message += `Состав: ${membersCount} человек\n`;
+            message += `Тариф: ${tariff || 'Не выбран'}\n`;
+            message += `Дата: 28.05.2026 18:00\n`;
+            message += `Место: Липецк, ул. Ленина, 31а\n`;
+            message += `\n---\nОжидайте подтверждения от организатора. ROCK ON!`;
             
-            // Кодируем сообщение для URL
             const encodedMessage = encodeURIComponent(message);
             const vkUrl = `https://vk.com/id38195847?text=${encodedMessage}`;
             
-            // Открываем ВК с готовым сообщением
             window.open(vkUrl, '_blank');
+            alert('✅ Заявка готова! Отправьте сообщение во вкладке ВК.');
             
-            alert('✅ Заявка сформирована! Вы будете перенаправлены в ВК для отправки сообщения.');
-            
-            // Не закрываем модальное окно, чтобы пользователь мог скопировать данные, если нужно
-            // Можно закрыть через пару секунд
-            setTimeout(() => {
-                closeModal();
-            }, 3000);
+            setTimeout(() => closeModal(), 2500);
         });
         
-        // Плавная прокрутка для якорей
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
