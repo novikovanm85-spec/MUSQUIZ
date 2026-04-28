@@ -98,7 +98,6 @@
         </div>
     </nav>
 
-    <!-- Hero --> 
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -115,7 +114,6 @@
         </div>
     </section>
 
-    <!-- Тарифы -->
     <section id="tariffs">
         <div class="container">
             <h2>💰 ВЫБЕРИТЕ ТИП УЧАСТИЯ</h2>
@@ -128,7 +126,6 @@
         </div>
     </section>
 
-    <!-- Программа -->
     <section id="program">
         <div class="container">
             <h2>🎵 ПРОГРАММА МЕРОПРИЯТИЯ</h2>
@@ -142,7 +139,6 @@
         </div>
     </section>
 
-    <!-- Связь -->
     <section id="contact">
         <div class="container">
             <h2>📞 СВЯЗЬ С ОРГАНИЗАТОРАМИ</h2>
@@ -154,7 +150,6 @@
         </div>
     </section>
 
-    <!-- Правила -->
     <section id="rules" style="background: #020202;">
         <div class="container">
             <h2>📜 ПРАВИЛА ИГРЫ</h2>
@@ -166,7 +161,6 @@
         </div>
     </section>
 
-    <!-- Место -->
     <section id="location">
         <div class="container">
             <h2>📍 МЕСТО ПРОВЕДЕНИЯ</h2>
@@ -177,7 +171,7 @@
         </div>
     </section>
 
-    <!-- Модальное окно -->
+    <!-- Модальное окно бронирования -->
     <div id="bookingModal" class="modal">
         <div class="modal-content">
             <span class="modal-close" id="closeModal">&times;</span>
@@ -191,7 +185,6 @@
                 <label>ИМЯ И ФАМИЛИЯ УЧАСТНИКА *</label>
                 <input type="text" id="participantName" placeholder="Иван Иванов">
             </div>
-            <!-- Инструкция будет появляться здесь -->
             <div id="instructionBox" style="display: none;"></div>
             <button id="submitBookingBtn" class="btn" style="width: 100%;" disabled>ЗАБРОНИРОВАТЬ</button>
             <button id="modalPhonesBtn" class="btn btn-small" style="width: 100%; background: #333;">📞 Связаться с организаторами</button>
@@ -221,6 +214,9 @@
         const tariffRadios = document.querySelectorAll('input[name="tariff"]');
         const instructionBox = document.getElementById('instructionBox');
         let selectedTariff = '';
+        
+        // ВАШ URL ИЗ GOOGLE APPS SCRIPT
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby_8GqoxJS_OmCGJO-wI4mrJIqVW4SlTS56LDypLtE-Qg13ZOV06LSatLBpkAj_InXTyg/exec';
         
         function checkForm() {
             const nameFilled = participantNameInput.value.trim() !== '';
@@ -253,27 +249,24 @@
         document.getElementById('closeModal').addEventListener('click', closeModal);
         window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
         
-        // Функция отправки заявки на почту через FormSubmit
-        async function sendToEmail(name, tariff) {
-            const emailData = {
-                name: name,
-                tariff: tariff,
-                date: "28.05.2026 18:00",
-                place: "Липецк, ул. Ленина, 31а"
-            };
-            
+        // Отправка в Google Таблицу
+        async function sendToGoogleSheet(name, tariff) {
             try {
-                await fetch('https://formsubmit.co/ajax/novikovanm85@mail.ru', {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
+                    mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Accept': 'application/json'
                     },
-                    body: JSON.stringify(emailData)
+                    body: JSON.stringify({
+                        name: name,
+                        tariff: tariff,
+                        date: new Date().toLocaleString('ru-RU')
+                    })
                 });
-                console.log('Email отправлен');
+                console.log('Заявка отправлена в Google Таблицу');
             } catch(e) {
-                console.log('Ошибка отправки email:', e);
+                console.log('Ошибка отправки в Google:', e);
             }
         }
         
@@ -281,8 +274,8 @@
             const name = participantNameInput.value.trim();
             if (!name || !selectedTariff) return;
             
-            // 1. Отправляем заявку на почту (автоматически, без участия пользователя)
-            await sendToEmail(name, selectedTariff);
+            // 1. Отправляем в Google Таблицу (бесшумно, в фоне)
+            await sendToGoogleSheet(name, selectedTariff);
             
             // 2. Формируем сообщение для ВК
             let msg = `🎵 НОВАЯ ЗАЯВКА НА МУЗЫКАЛЬНЫЙ КВИЗ 🎵\n\n`;
@@ -292,19 +285,19 @@
             msg += `Место: Липецк, ул. Ленина, 31а\n\n`;
             msg += `---\nОжидайте подтверждения.`;
             
-            // 3. Копируем в буфер обмена
+            // 3. Копируем в буфер
             try { 
                 await navigator.clipboard.writeText(msg); 
             } catch(e) { 
-                alert('❌ Не удалось скопировать текст. Но заявка уже отправлена организатору на почту.'); 
+                alert('❌ Не удалось скопировать текст. Но заявка уже сохранена в Google Таблицу.');
                 closeModal(); 
                 return; 
             }
             
-            // 4. Показываем инструкцию и даём время прочитать
+            // 4. Показываем инструкцию
             instructionBox.innerHTML = `
                 <div class="instruction-text">
-                    <strong>✅ ЗАЯВКА ОТПРАВЛЕНА ОРГАНИЗАТОРУ НА ПОЧТУ!</strong><br><br>
+                    <strong>✅ ЗАЯВКА ОТПРАВЛЕНА В GOOGLE ТАБЛИЦУ!</strong><br><br>
                     📨 Текст заявки также скопирован в буфер обмена.<br>
                     📋 Вставьте его в диалог с организатором (Ctrl+V / долгое нажатие → Вставить).<br>
                     ✉️ Отправьте — и заявка будет принята.
@@ -312,7 +305,7 @@
             `;
             instructionBox.style.display = 'block';
             
-            // 5. Через 10 секунд открываем ВК и закрываем окно
+            // 5. Через 10 секунд открываем ВК
             setTimeout(() => {
                 window.location.href = 'https://vk.com/im?sel=38195847';
                 setTimeout(() => {
