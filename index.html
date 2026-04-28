@@ -4,531 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Музыкальный Квиз | Рок-битва 2026</title>
-    <!-- Рок-шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Russo+One&family=Oswald:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000000;
-            color: #e0e0e0;
-            line-height: 1.5;
-            scroll-behavior: smooth;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #ff0000, #cc0000, #ff4444);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        h1 {
-            font-family: 'Russo One', sans-serif;
-            font-size: 4rem;
-            font-weight: 400;
-            line-height: 1.1;
-            letter-spacing: 1px;
-        }
-
-        h2 {
-            font-family: 'Russo One', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            border-left: 5px solid #cc0000;
-            padding-left: 20px;
-        }
-
-        h3 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #cc0000;
-            color: white;
-            font-family: 'Bebas Neue', sans-serif;
-            font-weight: 400;
-            font-size: 1.3rem;
-            letter-spacing: 2px;
-            padding: 14px 40px;
-            border-radius: 0;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-
-        .btn:hover {
-            background: #ff0000;
-            transform: scale(1.02);
-            letter-spacing: 3px;
-        }
-
-        .btn:disabled {
-            background: #555;
-            cursor: not-allowed;
-            transform: none;
-            letter-spacing: 2px;
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        section {
-            padding: 100px 0;
-            border-bottom: 1px solid rgba(204,0,0,0.3);
-        }
-
-        .navbar {
-            padding: 20px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0,0,0,0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 2px solid #cc0000;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            letter-spacing: 2px;
-            color: #cc0000;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            color: white;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #cc0000;
-        }
-
-        .btn-nav {
-            padding: 6px 20px;
-            font-size: 1rem;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1501612780327-45045538702b?q=80&w=2070&auto=format') center/cover fixed;
-            padding-top: 80px;
-        }
-
-        .hero-badge {
-            background: rgba(204,0,0,0.2);
-            padding: 8px 20px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-            font-size: 0.85rem;
-            display: inline-block;
-            margin-bottom: 20px;
-            border-left: 3px solid #cc0000;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero-details {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin: 30px 0;
-        }
-
-        .hero-details i {
-            color: #cc0000;
-            margin-right: 10px;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .card {
-            background: #0a0a0a;
-            padding: 30px;
-            border: 1px solid rgba(204,0,0,0.3);
-            transition: all 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #cc0000;
-            box-shadow: 0 20px 40px rgba(204,0,0,0.2);
-        }
-
-        .tariff-card {
-            text-align: center;
-        }
-
-        .tariff-price {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.2rem;
-            color: #cc0000;
-            margin: 20px 0;
-        }
-
-        .timeline {
-            margin-top: 40px;
-        }
-
-        .timeline-item {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 20px;
-            padding: 20px;
-            background: rgba(204,0,0,0.05);
-            border-left: 4px solid #cc0000;
-            transition: 0.2s;
-        }
-
-        .timeline-item:hover {
-            background: rgba(204,0,0,0.1);
-            transform: translateX(10px);
-        }
-
-        .timeline-time {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            min-width: 200px;
-            color: #cc0000;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.96);
-            backdrop-filter: blur(8px);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: #0a0a0a;
-            padding: 40px;
-            max-width: 500px;
-            width: 90%;
-            border: 2px solid #cc0000;
-            position: relative;
-        }
-
-        .modal-content h3 {
-            font-family: 'Russo One', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #aaa;
-        }
-
-        .radio-group {
-            margin: 20px 0;
-        }
-
-        .radio-group label {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
-            cursor: pointer;
-        }
-
-        .radio-group input {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 15px;
-            background: #1a1a1a;
-            border: 1px solid #333;
-            color: white;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #cc0000;
-        }
-
-        .map {
-            overflow: hidden;
-            margin-top: 30px;
-            border: 2px solid #cc0000;
-        }
-
-        iframe {
-            width: 100%;
-            border: 0;
-        }
-
-        footer {
-            background: #000000;
-            padding: 50px 0 30px;
-            text-align: center;
-            color: #888;
-            border-top: 2px solid #cc0000;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 15px;
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            color: #cc0000;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.6rem; }
-            section { padding: 60px 0; }
-            .nav-links { display: none; }
-            .timeline-item { flex-direction: column; gap: 8px; }
-            .timeline-time { min-width: auto; }
-        }
-
-        .count-badge {
-            background: #cc0000;
-            padding: 5px 14px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 0.9rem;
-            display: inline-block;
-        }
-
-        p, .card p, .timeline-item div:not(.timeline-time) {
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            font-size: 1rem;
-            color: #d0d0d0;
-        }
-
-        strong {
-            color: #ffffff;
-            font-weight: 700;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #000000; color: #e0e0e0; line-height: 1.5; scroll-behavior: smooth; }
+        .gradient-text { background: linear-gradient(135deg, #ff0000, #cc0000, #ff4444); background-clip: text; -webkit-background-clip: text; color: transparent; }
+        h1 { font-family: 'Russo One', sans-serif; font-size: 4rem; font-weight: 400; line-height: 1.1; letter-spacing: 1px; }
+        h2 { font-family: 'Russo One', sans-serif; font-size: 2.2rem; font-weight: 400; margin-bottom: 1.5rem; border-left: 5px solid #cc0000; padding-left: 20px; }
+        h3 { font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.8rem; }
+        .btn { display: inline-block; background: #cc0000; color: white; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 1.3rem; letter-spacing: 2px; padding: 14px 40px; border-radius: 0; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; text-transform: uppercase; }
+        .btn:hover { background: #ff0000; transform: scale(1.02); letter-spacing: 3px; }
+        .btn:disabled { background: #555; cursor: not-allowed; transform: none; letter-spacing: 2px; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 24px; }
+        section { padding: 100px 0; border-bottom: 1px solid rgba(204,0,0,0.3); }
+        .navbar { padding: 20px 0; position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 2px solid #cc0000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1300px; margin: 0 auto; padding: 0 24px; }
+        .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: #cc0000; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1px; color: white; text-decoration: none; transition: 0.3s; }
+        .nav-links a:hover { color: #cc0000; }
+        .btn-nav { padding: 6px 20px; font-size: 1rem; }
+        .hero { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1501612780327-45045538702b?q=80&w=2070&auto=format') center/cover fixed; padding-top: 80px; }
+        .hero-badge { background: rgba(204,0,0,0.2); padding: 8px 20px; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.85rem; display: inline-block; margin-bottom: 20px; border-left: 3px solid #cc0000; }
+        .hero-content { max-width: 800px; }
+        .hero-details { display: flex; flex-wrap: wrap; gap: 30px; margin: 30px 0; }
+        .hero-details i { color: #cc0000; margin-right: 10px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: #0a0a0a; padding: 30px; border: 1px solid rgba(204,0,0,0.3); transition: all 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: #cc0000; box-shadow: 0 20px 40px rgba(204,0,0,0.2); }
+        .tariff-card { text-align: center; }
+        .tariff-price { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: #cc0000; margin: 20px 0; }
+        .timeline { margin-top: 40px; }
+        .timeline-item { display: flex; gap: 30px; margin-bottom: 20px; padding: 20px; background: rgba(204,0,0,0.05); border-left: 4px solid #cc0000; transition: 0.2s; }
+        .timeline-item:hover { background: rgba(204,0,0,0.1); transform: translateX(10px); }
+        .timeline-time { font-family: 'Oswald', sans-serif; font-weight: 700; min-width: 200px; color: #cc0000; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); backdrop-filter: blur(8px); z-index: 2000; justify-content: center; align-items: center; }
+        .modal.active { display: flex; }
+        .modal-content { background: #0a0a0a; padding: 40px; max-width: 500px; width: 90%; border: 2px solid #cc0000; position: relative; }
+        .modal-content h3 { font-family: 'Russo One', sans-serif; font-size: 1.5rem; margin-bottom: 20px; text-align: center; }
+        .modal-close { position: absolute; top: 20px; right: 25px; font-size: 2rem; cursor: pointer; color: #aaa; }
+        .radio-group { margin: 20px 0; }
+        .radio-group label { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; cursor: pointer; }
+        .radio-group input { width: 20px; height: 20px; cursor: pointer; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-family: 'Oswald', sans-serif; font-weight: 600; }
+        .form-group input { width: 100%; padding: 15px; background: #1a1a1a; border: 1px solid #333; color: white; font-family: 'Inter', sans-serif; font-size: 1rem; }
+        .form-group input:focus { outline: none; border-color: #cc0000; }
+        .map { overflow: hidden; margin-top: 30px; border: 2px solid #cc0000; }
+        iframe { width: 100%; border: 0; }
+        footer { background: #000000; padding: 50px 0 30px; text-align: center; color: #888; border-top: 2px solid #cc0000; }
+        .social-links a { color: white; font-size: 1.5rem; margin: 0 15px; transition: 0.3s; }
+        .social-links a:hover { color: #cc0000; }
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } h2 { font-size: 1.6rem; } section { padding: 60px 0; } .nav-links { display: none; } .timeline-item { flex-direction: column; gap: 8px; } .timeline-time { min-width: auto; } }
+        .count-badge { background: #cc0000; padding: 5px 14px; font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; display: inline-block; }
+        p, .card p, .timeline-item div:not(.timeline-time) { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 1rem; color: #d0d0d0; }
+        strong { color: #ffffff; font-weight: 700; }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">🎸 MUSIC QUIZ</div>
-            <div class="nav-links">
-                <a href="#program">ПРОГРАММА</a>
-                <a href="#rules">ПРАВИЛА</a>
-                <a href="#tariffs">ТАРИФЫ</a>
-                <a href="#location">МЕСТО</a>
-                <a href="#booking" class="btn btn-nav" id="navBookingBtn">ЗАПИСАТЬСЯ</a>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar"><div class="nav-container"><div class="logo">🎸 MUSIC QUIZ</div><div class="nav-links"><a href="#program">ПРОГРАММА</a><a href="#rules">ПРАВИЛА</a><a href="#tariffs">ТАРИФЫ</a><a href="#location">МЕСТО</a><a href="#booking" class="btn btn-nav" id="navBookingBtn">ЗАПИСАТЬСЯ</a></div></div></nav>
 
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">⚠️ КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО</div>
-                <h1>Музыкальный<br><span class="gradient-text">Квиз</span></h1>
-                <p>Рок, Логика, Движ, IQ, гитарные риффы, реакция, интерактив и современные технологии!<br>Только сильнейшие выживут!</p>
-                
-                <div class="hero-details">
-                    <div><i class="fas fa-calendar-alt"></i> <strong>28 мая 2026</strong><br>18:00</div>
-                    <div><i class="fas fa-map-marker-alt"></i> <strong>Липецк</strong><br>ул. Ленина, 31а</div>
-                    <div><i class="fas fa-users"></i> <strong>Команда 6 человек</strong><br>6+ команд</div>
-                </div>
-                
-                <button class="btn" id="heroBookingBtn">🎤 ЗАНЯТЬ МЕСТО →</button>
-            </div>
-        </div>
-    </section>
+    <section class="hero" id="home"><div class="container"><div class="hero-content"><div class="hero-badge">⚠️ КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО</div><h1>Музыкальный<br><span class="gradient-text">Квиз</span></h1><p>Рок, Логика, Движ, IQ, гитарные риффы, реакция, интерактив и современные технологии!<br>Только сильнейшие выживут!</p><div class="hero-details"><div><i class="fas fa-calendar-alt"></i> <strong>28 мая 2026</strong><br>18:00</div><div><i class="fas fa-map-marker-alt"></i> <strong>Липецк</strong><br>ул. Ленина, 31а</div><div><i class="fas fa-users"></i> <strong>Команда 6 человек</strong><br>6+ команд</div></div><button class="btn" id="heroBookingBtn">🎤 ЗАНЯТЬ МЕСТО →</button></div></div></section>
 
-    <section id="program">
-        <div class="container">
-            <h2>🎵 ПРОГРАММА МЕРОПРИЯТИЯ</h2>
-            <div class="timeline">
-                <div class="timeline-item"><div class="timeline-time">ОТБОРОЧНЫЙ ТУР</div><div>Вопросы и 4 ответа, разминка для команд. Определяем первых лидеров.</div></div>
-                <div class="timeline-item"><div class="timeline-time">ОСНОВНЫЕ ТУРЫ</div><div>Битва команда на команду.</div></div>
-                <div class="timeline-item"><div class="timeline-time">МУЗЫКАЛЬНАЯ ПАУЗА</div><div>Живое выступление, отдых для участников.</div></div>
-                <div class="timeline-item"><div class="timeline-time">ФИНАЛЬНЫЙ ТУР</div><div>Битва сильнейших. Самые сложные вопросы и решающие баллы.</div></div>
-                <div class="timeline-item"><div class="timeline-time">НАГРАЖДЕНИЕ</div><div>Подсчёт очков, церемония награждения и финальное фото.</div></div>
-            </div>
-        </div>
-    </section>
+    <section id="program"><div class="container"><h2>🎵 ПРОГРАММА МЕРОПРИЯТИЯ</h2><div class="timeline"><div class="timeline-item"><div class="timeline-time">ОТБОРОЧНЫЙ ТУР</div><div>Вопросы и 4 ответа, разминка для команд. Определяем первых лидеров.</div></div><div class="timeline-item"><div class="timeline-time">ОСНОВНЫЕ ТУРЫ</div><div>Битва команда на команду.</div></div><div class="timeline-item"><div class="timeline-time">МУЗЫКАЛЬНАЯ ПАУЗА</div><div>Живое выступление, отдых для участников.</div></div><div class="timeline-item"><div class="timeline-time">ФИНАЛЬНЫЙ ТУР</div><div>Битва сильнейших. Самые сложные вопросы и решающие баллы.</div></div><div class="timeline-item"><div class="timeline-time">НАГРАЖДЕНИЕ</div><div>Подсчёт очков, церемония награждения и финальное фото.</div></div></div></div></section>
 
-    <section id="rules" style="background: #020202;">
-        <div class="container">
-            <h2>📜 ПРАВИЛА ИГРЫ</h2>
-            <div class="card" style="margin-top: 30px; text-align: center;">
-                <p>Здесь будут подробные правила. Они появятся позже.</p>
-                <p style="margin-top: 12px;">Команды из 6 человек соревнуются в музыкальной эрудиции. Побеждает команда, набравшая больше всего очков.</p>
-                <p style="margin-top: 12px;">👑 Честная игра, быстрые кнопки и никаких спойлеров!</p>
-            </div>
-        </div>
-    </section>
+    <section id="rules" style="background: #020202;"><div class="container"><h2>📜 ПРАВИЛА ИГРЫ</h2><div class="card" style="margin-top: 30px; text-align: center;"><p>Здесь будут подробные правила. Они появятся позже.</p><p style="margin-top: 12px;">Команды из 6 человек соревнуются в музыкальной эрудиции. Побеждает команда, набравшая больше всего очков.</p><p style="margin-top: 12px;">👑 Честная игра, быстрые кнопки и никаких спойлеров!</p></div></div></section>
 
-    <section id="tariffs">
-        <div class="container">
-            <h2>💰 ВЫБЕРИТЕ ТИП УЧАСТИЯ</h2>
-            <div class="grid-3">
-                <div class="card tariff-card">
-                    <i class="fas fa-eye" style="font-size: 2.5rem; color: #cc0000;"></i>
-                    <h3>Зритель</h3>
-                    <div class="tariff-price">500 ₽</div>
-                    <p>Поддержка команд, участие в конкурсах для зрителей, атмосфера праздника.</p>
-                    <button class="btn" style="margin-top: 20px;" data-tariff="Зритель - 500 руб">ВЫБРАТЬ</button>
-                </div>
-                <div class="card tariff-card">
-                    <i class="fas fa-microphone-alt" style="font-size: 2.5rem; color: #cc0000;"></i>
-                    <h3>Участник</h3>
-                    <div class="tariff-price">1000 ₽</div>
-                    <p>Участие в квизе одного игрока.</p>
-                    <button class="btn" style="margin-top: 20px;" data-tariff="Участник - 1000 руб">ВЫБРАТЬ</button>
-                </div>
-                <div class="card tariff-card">
-                    <i class="fas fa-star" style="font-size: 2.5rem; color: #cc0000;"></i>
-                    <h3>Участник + Группа поддержки</h3>
-                    <div class="tariff-price">1500 ₽</div>
-                    <p>Участие в квизе + приводи с собой до 4 человек болельщиков.</p>
-                    <button class="btn" style="margin-top: 20px;" data-tariff="Участник + Группа поддержки - 1500 руб">ВЫБРАТЬ</button>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <div class="count-badge">⚠️</div>
-                <span style="margin-left: 12px;">КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО! УСПЕЙТЕ ЗАБРОНИРОВАТЬ.</span>
-            </div>
-        </div>
-    </section>
+    <section id="tariffs"><div class="container"><h2>💰 ВЫБЕРИТЕ ТИП УЧАСТИЯ</h2><div class="grid-3"><div class="card tariff-card"><i class="fas fa-eye" style="font-size: 2.5rem; color: #cc0000;"></i><h3>Зритель</h3><div class="tariff-price">500 ₽</div><p>Поддержка команд, участие в конкурсах для зрителей, атмосфера праздника.</p><button class="btn" style="margin-top: 20px;" data-tariff="Зритель - 500 руб">ВЫБРАТЬ</button></div><div class="card tariff-card"><i class="fas fa-microphone-alt" style="font-size: 2.5rem; color: #cc0000;"></i><h3>Участник</h3><div class="tariff-price">1000 ₽</div><p>Участие в квизе одного игрока.</p><button class="btn" style="margin-top: 20px;" data-tariff="Участник - 1000 руб">ВЫБРАТЬ</button></div><div class="card tariff-card"><i class="fas fa-star" style="font-size: 2.5rem; color: #cc0000;"></i><h3>Участник + Группа поддержки</h3><div class="tariff-price">1500 ₽</div><p>Участие в квизе + приводи с собой до 4 человек болельщиков.</p><button class="btn" style="margin-top: 20px;" data-tariff="Участник + Группа поддержки - 1500 руб">ВЫБРАТЬ</button></div></div><div style="text-align: center; margin-top: 40px;"><div class="count-badge">⚠️</div><span style="margin-left: 12px;">КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО! УСПЕЙТЕ ЗАБРОНИРОВАТЬ.</span></div></div></section>
 
-    <section id="location">
-        <div class="container">
-            <h2>📍 МЕСТО ПРОВЕДЕНИЯ</h2>
-            <div class="grid-2">
-                <div>
-                    <h3>Библиотечно-информационный центр им. П.И. Бартенева</h3>
-                    <p><i class="fas fa-map-pin" style="color: #cc0000;"></i> ул. Ленина, 31а, Липецк, Липецкая обл., 398020</p>
-                    <p style="margin-top: 20px;">Уютный зал, отличная акустика, удобная парковка.</p>
-                </div>
-                <div class="map">
-                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1f3b5c5f5a2d9f2e8f3b8c9d7e6f5a4b3c2d1e0f1a2b3c4d5e6f7a8b9c0d1e2f3&source=constructor" width="100%" height="250" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="location"><div class="container"><h2>📍 МЕСТО ПРОВЕДЕНИЯ</h2><div class="grid-2"><div><h3>Библиотечно-информационный центр им. П.И. Бартенева</h3><p><i class="fas fa-map-pin" style="color: #cc0000;"></i> ул. Ленина, 31а, Липецк, Липецкая обл., 398020</p><p style="margin-top: 20px;">Уютный зал, отличная акустика, удобная парковка.</p></div><div class="map"><iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1f3b5c5f5a2d9f2e8f3b8c9d7e6f5a4b3c2d1e0f1a2b3c4d5e6f7a8b9c0d1e2f3&source=constructor" width="100%" height="250" frameborder="0" allowfullscreen></iframe></div></div></div></section>
 
-    <!-- Модальное окно бронирования -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" id="closeModal">&times;</span>
-            <h3>🎫 БРОНИРОВАНИЕ МЕСТА</h3>
-            
-            <div class="radio-group" id="tariffRadios">
-                <label><input type="radio" name="tariff" value="Зритель - 500 руб"> <strong>Зритель</strong> — 500 ₽</label>
-                <label><input type="radio" name="tariff" value="Участник - 1000 руб"> <strong>Участник</strong> — 1000 ₽</label>
-                <label><input type="radio" name="tariff" value="Участник + Группа поддержки - 1500 руб"> <strong>Участник + Группа поддержки</strong> — 1500 ₽</label>
-            </div>
-            
-            <div class="form-group">
-                <label>ИМЯ И ФАМИЛИЯ УЧАСТНИКА *</label>
-                <input type="text" id="participantName" placeholder="Иван Иванов">
-            </div>
-            
-            <button id="submitBookingBtn" class="btn" style="width: 100%;" disabled>ЗАБРОНИРОВАТЬ</button>
-            <p style="font-size: 0.7rem; margin-top: 20px; text-align: center;">После заполнения формы станет активной кнопка бронирования</p>
-        </div>
-    </div>
+    <div id="bookingModal" class="modal"><div class="modal-content"><span class="modal-close" id="closeModal">&times;</span><h3>🎫 БРОНИРОВАНИЕ МЕСТА</h3><div class="radio-group" id="tariffRadios"><label><input type="radio" name="tariff" value="Зритель - 500 руб"> <strong>Зритель</strong> — 500 ₽</label><label><input type="radio" name="tariff" value="Участник - 1000 руб"> <strong>Участник</strong> — 1000 ₽</label><label><input type="radio" name="tariff" value="Участник + Группа поддержки - 1500 руб"> <strong>Участник + Группа поддержки</strong> — 1500 ₽</label></div><div class="form-group"><label>ИМЯ И ФАМИЛИЯ УЧАСТНИКА *</label><input type="text" id="participantName" placeholder="Иван Иванов"></div><button id="submitBookingBtn" class="btn" style="width: 100%;" disabled>ЗАБРОНИРОВАТЬ</button><p style="font-size: 0.7rem; margin-top: 20px; text-align: center;">После заполнения формы станет активной кнопка бронирования</p></div></div>
 
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://vk.com/id38195847" target="_blank"><i class="fab fa-vk"></i></a>
-            </div>
-            <p>© 2026 Музыкальный Квиз | <a href="https://vk.com/id38195847" target="_blank" style="color: #cc0000;">ОРГАНИЗАТОР</a></p>
-            <p style="margin-top: 8px;">📍 Липецк, ул. Ленина, 31а</p>
-        </div>
-    </footer>
+    <footer><div class="container"><div class="social-links"><a href="https://vk.com/id38195847" target="_blank"><i class="fab fa-vk"></i></a></div><p>© 2026 Музыкальный Квиз | <a href="https://vk.com/id38195847" target="_blank" style="color: #cc0000;">ОРГАНИЗАТОР</a></p><p style="margin-top: 8px;">📍 Липецк, ул. Ленина, 31а</p></div></footer>
 
     <script>
         const modal = document.getElementById('bookingModal');
@@ -558,19 +108,14 @@
             submitBtn.disabled = true;
         }
         
-        function closeModal() {
-            modal.classList.remove('active');
-        }
+        function closeModal() { modal.classList.remove('active'); }
         
         document.getElementById('heroBookingBtn').addEventListener('click', openModal);
-        document.getElementById('navBookingBtn').addEventListener('click', (e) => {
-            e.preventDefault();
-            openModal();
-        });
-        
+        document.getElementById('navBookingBtn').addEventListener('click', (e) => { e.preventDefault(); openModal(); });
         document.getElementById('closeModal').addEventListener('click', closeModal);
         window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
         
+        // ★★★ ИСПРАВЛЕННЫЙ БЛОК ОТПРАВКИ ★★★
         submitBtn.addEventListener('click', () => {
             const name = participantNameInput.value.trim();
             if (!name || !selectedTariff) return;
@@ -578,11 +123,24 @@
             msg += `Участник: ${name}\n`;
             msg += `Тариф: ${selectedTariff}\n`;
             msg += `Дата: 28.05.2026 18:00\nМесто: Липецк, ул. Ленина, 31а\n\n---\nОжидайте подтверждения.`;
-            window.open(`https://vk.com/id38195847?text=${encodeURIComponent(msg)}`, '_blank');
-            alert('✅ Заявка сформирована! Отправьте сообщение во вкладке ВК.');
+
+            // НАДЁЖНАЯ ССЫЛКА НА ДИАЛОГ ВК
+            const vkUrl = `https://vk.com/im?sel=38195847&text=${encodeURIComponent(msg)}`;
+            const w = window.open(vkUrl, '_blank');
+
+            if (!w) {
+                // Если блокировщик всплывающих окон — копируем текст в буфер
+                navigator.clipboard.writeText(msg)
+                    .then(() => alert('❌ Не удалось открыть ВК. Сообщение скопировано в буфер обмена. Вставьте его в диалог с организатором вручную.'))
+                    .catch(() => alert('❌ Не удалось открыть ВК. Пожалуйста, напишите организатору вручную.'));
+            } else {
+                alert('✅ Заявка сформирована! Отправьте сообщение во вкладке ВК.');
+            }
+
             closeModal();
         });
-        
+        // ★★★ КОНЕЦ ИСПРАВЛЕННОГО БЛОКА ★★★
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.querySelector(this.getAttribute('href'));
