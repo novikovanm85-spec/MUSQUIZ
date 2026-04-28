@@ -63,12 +63,14 @@
         strong { color: #ffffff; font-weight: 700; }
         .contact-phones { margin-top: 10px; font-size: 0.9rem; color: #cc0000; background: #1a1a1a; padding: 10px; border-radius: 8px; border-left: 3px solid #cc0000; }
         .instruction-text {
-            background: #1a1a1a;
-            padding: 12px;
+            background: #0a2a0a;
+            padding: 15px;
             margin: 15px 0;
-            border-left: 3px solid #cc0000;
-            font-size: 0.85rem;
+            border-left: 4px solid #00cc00;
+            font-size: 0.9rem;
             text-align: center;
+            border-radius: 8px;
+            color: #ffffff;
         }
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
@@ -118,29 +120,11 @@
         <div class="container">
             <h2>💰 ВЫБЕРИТЕ ТИП УЧАСТИЯ</h2>
             <div class="grid-3">
-                <div class="card tariff-card">
-                    <i class="fas fa-eye" style="font-size: 2.5rem; color: #cc0000;"></i>
-                    <h3>Зритель</h3>
-                    <div class="tariff-price">500 ₽</div>
-                    <p>Поддержка команд, участие в конкурсах для зрителей, атмосфера праздника.</p>
-                </div>
-                <div class="card tariff-card">
-                    <i class="fas fa-microphone-alt" style="font-size: 2.5rem; color: #cc0000;"></i>
-                    <h3>Участник</h3>
-                    <div class="tariff-price">1000 ₽</div>
-                    <p>Участие в квизе одного игрока.</p>
-                </div>
-                <div class="card tariff-card">
-                    <i class="fas fa-star" style="font-size: 2.5rem; color: #cc0000;"></i>
-                    <h3>Участник + Группа поддержки</h3>
-                    <div class="tariff-price">1500 ₽</div>
-                    <p>Участие в квизе + приводи с собой до 4 человек болельщиков.</p>
-                </div>
+                <div class="card tariff-card"><i class="fas fa-eye" style="font-size: 2.5rem; color: #cc0000;"></i><h3>Зритель</h3><div class="tariff-price">500 ₽</div><p>Поддержка команд, участие в конкурсах для зрителей, атмосфера праздника.</p></div>
+                <div class="card tariff-card"><i class="fas fa-microphone-alt" style="font-size: 2.5rem; color: #cc0000;"></i><h3>Участник</h3><div class="tariff-price">1000 ₽</div><p>Участие в квизе одного игрока.</p></div>
+                <div class="card tariff-card"><i class="fas fa-star" style="font-size: 2.5rem; color: #cc0000;"></i><h3>Участник + Группа поддержки</h3><div class="tariff-price">1500 ₽</div><p>Участие в квизе + приводи с собой до 4 человек болельщиков.</p></div>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <div class="count-badge">⚠️</div>
-                <span style="margin-left: 12px;">КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО! УСПЕЙТЕ ЗАБРОНИРОВАТЬ.</span>
-            </div>
+            <div style="text-align: center; margin-top: 40px;"><div class="count-badge">⚠️</div><span style="margin-left: 12px;">КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО! УСПЕЙТЕ ЗАБРОНИРОВАТЬ.</span></div>
         </div>
     </section>
 
@@ -164,10 +148,7 @@
             <h2>📞 СВЯЗЬ С ОРГАНИЗАТОРАМИ</h2>
             <div class="card" style="text-align: center;">
                 <p style="font-size: 1.2rem;">Если у вас есть вопросы, звоните или пишите в MAX, VK:</p>
-                <div class="contact-phones">
-                    <strong>📱 +7 (960) 140-14-45</strong><br>
-                    <strong>📱 +7 (904) 693-53-35</strong>
-                </div>
+                <div class="contact-phones"><strong>📱 +7 (960) 140-14-45</strong><br><strong>📱 +7 (904) 693-53-35</strong></div>
                 <p style="margin-top: 15px;"><i class="fab fa-vk"></i> <a href="https://vk.com/id38195847" target="_blank" style="color: #cc0000;">Написать в VK</a></p>
             </div>
         </div>
@@ -190,43 +171,28 @@
         <div class="container">
             <h2>📍 МЕСТО ПРОВЕДЕНИЯ</h2>
             <div class="grid-2">
-                <div>
-                    <h3>Библиотечно-информационный центр им. П.И. Бартенева</h3>
-                    <p><i class="fas fa-map-pin" style="color: #cc0000;"></i> ул. Ленина, 31а, Липецк, Липецкая обл., 398020</p>
-                    <p style="margin-top: 20px;">Уютный зал, отличная акустика, удобная парковка.</p>
-                </div>
-                <div class="map">
-                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1f3b5c5f5a2d9f2e8f3b8c9d7e6f5a4b3c2d1e0f1a2b3c4d5e6f7a8b9c0d1e2f3&source=constructor" width="100%" height="250" frameborder="0" allowfullscreen></iframe>
-                </div>
+                <div><h3>Библиотечно-информационный центр им. П.И. Бартенева</h3><p><i class="fas fa-map-pin" style="color: #cc0000;"></i> ул. Ленина, 31а, Липецк, Липецкая обл., 398020</p><p style="margin-top: 20px;">Уютный зал, отличная акустика, удобная парковка.</p></div>
+                <div class="map"><iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1f3b5c5f5a2d9f2e8f3b8c9d7e6f5a4b3c2d1e0f1a2b3c4d5e6f7a8b9c0d1e2f3&source=constructor" width="100%" height="250" frameborder="0" allowfullscreen></iframe></div>
             </div>
         </div>
     </section>
 
-    <!-- Модальное окно бронирования с инструкцией -->
+    <!-- Модальное окно -->
     <div id="bookingModal" class="modal">
         <div class="modal-content">
             <span class="modal-close" id="closeModal">&times;</span>
             <h3>🎫 БРОНИРОВАНИЕ МЕСТА</h3>
-            
             <div class="radio-group" id="tariffRadios">
                 <label><input type="radio" name="tariff" value="Зритель - 500 руб"> <strong>Зритель</strong> — 500 ₽</label>
                 <label><input type="radio" name="tariff" value="Участник - 1000 руб"> <strong>Участник</strong> — 1000 ₽</label>
                 <label><input type="radio" name="tariff" value="Участник + Группа поддержки - 1500 руб"> <strong>Участник + Группа поддержки</strong> — 1500 ₽</label>
             </div>
-            
             <div class="form-group">
                 <label>ИМЯ И ФАМИЛИЯ УЧАСТНИКА *</label>
                 <input type="text" id="participantName" placeholder="Иван Иванов">
             </div>
-            
-            <!-- ПОНЯТНАЯ ИНСТРУКЦИЯ -->
-            <div class="instruction-text" id="instructionText" style="display: none;">
-                <strong>✅ Текст заявки скопирован!</strong><br>
-                📨 Сейчас откроется диалог с организатором.<br>
-                📋 Вставьте текст сообщения (Ctrl+V / долгое нажатие → Вставить).<br>
-                ✉️ Отправьте — и заявка будет принята.
-            </div>
-            
+            <!-- Инструкция будет появляться здесь -->
+            <div id="instructionBox" style="display: none;"></div>
             <button id="submitBookingBtn" class="btn" style="width: 100%;" disabled>ЗАБРОНИРОВАТЬ</button>
             <button id="modalPhonesBtn" class="btn btn-small" style="width: 100%; background: #333;">📞 Связаться с организаторами</button>
             <div id="phonesContainer" style="display: none; margin-top: 15px; text-align: center;">
@@ -242,9 +208,7 @@
 
     <footer>
         <div class="container">
-            <div class="social-links">
-                <a href="https://vk.com/id38195847" target="_blank"><i class="fab fa-vk"></i></a>
-            </div>
+            <div class="social-links"><a href="https://vk.com/id38195847" target="_blank"><i class="fab fa-vk"></i></a></div>
             <p>© 2026 Музыкальный Квиз | <a href="https://vk.com/id38195847" target="_blank" style="color: #cc0000;">ОРГАНИЗАТОР</a></p>
             <p style="margin-top: 8px;">📍 Липецк, ул. Ленина, 31а</p>
         </div>
@@ -255,7 +219,7 @@
         const participantNameInput = document.getElementById('participantName');
         const submitBtn = document.getElementById('submitBookingBtn');
         const tariffRadios = document.querySelectorAll('input[name="tariff"]');
-        const instructionText = document.getElementById('instructionText');
+        const instructionBox = document.getElementById('instructionBox');
         let selectedTariff = '';
         
         function checkForm() {
@@ -277,7 +241,8 @@
             tariffRadios.forEach(r => r.checked = false);
             selectedTariff = '';
             submitBtn.disabled = true;
-            instructionText.style.display = 'none';
+            instructionBox.style.display = 'none';
+            instructionBox.innerHTML = '';
             document.getElementById('phonesContainer').style.display = 'none';
         }
         
@@ -307,15 +272,23 @@
                 return; 
             }
             
-            // Переход именно в диалог (не в профиль)
-            location.href = 'https://vk.com/im?sel=38195847';
+            // Показываем инструкцию и даём время прочитать
+            instructionBox.innerHTML = `
+                <div class="instruction-text">
+                    <strong>✅ Текст заявки скопирован в буфер обмена!</strong><br><br>
+                    📨 Сейчас откроется диалог с организатором.<br>
+                    📋 Вставьте текст сообщения (Ctrl+V / долгое нажатие → Вставить).<br>
+                    ✉️ Отправьте — и заявка будет принята.
+                </div>
+            `;
+            instructionBox.style.display = 'block';
             
-            // Показываем инструкцию
-            instructionText.style.display = 'block';
-            
-            // Через 4 секунды автоматически закрываем окно (уже показали инструкцию)
+            // Через 4 секунды открываем ВК и закрываем окно
             setTimeout(() => {
-                closeModal();
+                window.location.href = 'https://vk.com/im?sel=38195847';
+                setTimeout(() => {
+                    closeModal();
+                }, 500);
             }, 4000);
         });
         
