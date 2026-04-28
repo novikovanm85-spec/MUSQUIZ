@@ -74,19 +74,83 @@
     </style>
 </head>
 <body>
-    <nav class="navbar"><div class="nav-container"><div class="logo">🎸 MUSIC QUIZ</div><div class="nav-links"><a href="#program">ПРОГРАММА</a><a href="#rules">ПРАВИЛА</a><a href="#tariffs">ТАРИФЫ</a><a href="#location">МЕСТО</a><a href="#contact" id="contactNavLink">СВЯЗЬ</a><a href="#booking" class="btn btn-nav" id="navBookingBtn">ЗАПИСАТЬСЯ</a></div></div></nav>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🎸 MUSIC QUIZ</div>
+            <div class="nav-links">
+                <a href="#tariffs">ТАРИФЫ</a>
+                <a href="#program">ПРОГРАММА</a>
+                <a href="#contact">СВЯЗЬ</a>
+                <a href="#rules">ПРАВИЛА</a>
+                <a href="#location">МЕСТО</a>
+                <a href="#booking" class="btn btn-nav" id="navBookingBtn">ЗАПИСАТЬСЯ</a>
+            </div>
+        </div>
+    </nav>
 
-    <section class="hero" id="home"><div class="container"><div class="hero-content"><div class="hero-badge">⚠️ КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО</div><h1>Музыкальный<br><span class="gradient-text">Квиз</span></h1><p>Рок, Логика, Движ, IQ, гитарные риффы, реакция, интерактив и современные технологии!<br>Только сильнейшие выживут!</p><div class="hero-details"><div><i class="fas fa-calendar-alt"></i> <strong>28 мая 2026</strong><br>18:00</div><div><i class="fas fa-map-marker-alt"></i> <strong>Липецк</strong><br>ул. Ленина, 31а</div><div><i class="fas fa-users"></i> <strong>Команда 6 человек</strong><br>6+ команд</div></div><button class="btn" id="heroBookingBtn">🎤 ЗАНЯТЬ МЕСТО →</button></div></div></section>
+    <!-- Hero --> 
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">⚠️ КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО</div>
+                <h1>Музыкальный<br><span class="gradient-text">Квиз</span></h1>
+                <p>Рок, Логика, Движ, IQ, гитарные риффы, реакция, интерактив и современные технологии!<br>Только сильнейшие выживут!</p>
+                <div class="hero-details">
+                    <div><i class="fas fa-calendar-alt"></i> <strong>28 мая 2026</strong><br>18:00</div>
+                    <div><i class="fas fa-map-marker-alt"></i> <strong>Липецк</strong><br>ул. Ленина, 31а</div>
+                    <div><i class="fas fa-users"></i> <strong>Команда 6 человек</strong><br>6+ команд</div>
+                </div>
+                <button class="btn" id="heroBookingBtn">🎤 ЗАНЯТЬ МЕСТО →</button>
+            </div>
+        </div>
+    </section>
 
-    <section id="program"><div class="container"><h2>🎵 ПРОГРАММА МЕРОПРИЯТИЯ</h2><div class="timeline"><div class="timeline-item"><div class="timeline-time">ОТБОРОЧНЫЙ ТУР</div><div>Вопросы и 4 ответа, разминка для команд. Определяем первых лидеров.</div></div><div class="timeline-item"><div class="timeline-time">ОСНОВНЫЕ ТУРЫ</div><div>Битва команда на команду.</div></div><div class="timeline-item"><div class="timeline-time">МУЗЫКАЛЬНАЯ ПАУЗА</div><div>Живое выступление, отдых для участников.</div></div><div class="timeline-item"><div class="timeline-time">ФИНАЛЬНЫЙ ТУР</div><div>Битва сильнейших. Самые сложные вопросы и решающие баллы.</div></div><div class="timeline-item"><div class="timeline-time">НАГРАЖДЕНИЕ</div><div>Подсчёт очков, церемония награждения и финальное фото.</div></div></div></div></section>
+    <!-- Тарифы (ПЕРВЫЙ БЛОК) -->
+    <section id="tariffs">
+        <div class="container">
+            <h2>💰 ВЫБЕРИТЕ ТИП УЧАСТИЯ</h2>
+            <div class="grid-3">
+                <div class="card tariff-card">
+                    <i class="fas fa-eye" style="font-size: 2.5rem; color: #cc0000;"></i>
+                    <h3>Зритель</h3>
+                    <div class="tariff-price">500 ₽</div>
+                    <p>Поддержка команд, участие в конкурсах для зрителей, атмосфера праздника.</p>
+                </div>
+                <div class="card tariff-card">
+                    <i class="fas fa-microphone-alt" style="font-size: 2.5rem; color: #cc0000;"></i>
+                    <h3>Участник</h3>
+                    <div class="tariff-price">1000 ₽</div>
+                    <p>Участие в квизе одного игрока.</p>
+                </div>
+                <div class="card tariff-card">
+                    <i class="fas fa-star" style="font-size: 2.5rem; color: #cc0000;"></i>
+                    <h3>Участник + Группа поддержки</h3>
+                    <div class="tariff-price">1500 ₽</div>
+                    <p>Участие в квизе + приводи с собой до 4 человек болельщиков.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <div class="count-badge">⚠️</div>
+                <span style="margin-left: 12px;">КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО! УСПЕЙТЕ ЗАБРОНИРОВАТЬ.</span>
+            </div>
+        </div>
+    </section>
 
-    <section id="rules" style="background: #020202;"><div class="container"><h2>📜 ПРАВИЛА ИГРЫ</h2><div class="card" style="margin-top: 30px; text-align: center;"><p>Здесь будут подробные правила. Они появятся позже.</p><p style="margin-top: 12px;">Команды из 6 человек соревнуются в музыкальной эрудиции. Побеждает команда, набравшая больше всего очков.</p><p style="margin-top: 12px;">👑 Честная игра, быстрые кнопки и никаких спойлеров!</p></div></div></section>
+    <!-- Программа (ВТОРОЙ БЛОК) -->
+    <section id="program">
+        <div class="container">
+            <h2>🎵 ПРОГРАММА МЕРОПРИЯТИЯ</h2>
+            <div class="timeline">
+                <div class="timeline-item"><div class="timeline-time">ОТБОРОЧНЫЙ ТУР</div><div>Вопросы и 4 ответа, разминка для команд. Определяем первых лидеров.</div></div>
+                <div class="timeline-item"><div class="timeline-time">ОСНОВНЫЕ ТУРЫ</div><div>Битва команда на команду.</div></div>
+                <div class="timeline-item"><div class="timeline-time">МУЗЫКАЛЬНАЯ ПАУЗА</div><div>Живое выступление, отдых для участников.</div></div>
+                <div class="timeline-item"><div class="timeline-time">ФИНАЛЬНЫЙ ТУР</div><div>Битва сильнейших. Самые сложные вопросы и решающие баллы.</div></div>
+                <div class="timeline-item"><div class="timeline-time">НАГРАЖДЕНИЕ</div><div>Подсчёт очков, церемония награждения и финальное фото.</div></div>
+            </div>
+        </div>
+    </section>
 
-    <section id="tariffs"><div class="container"><h2>💰 ВЫБЕРИТЕ ТИП УЧАСТИЯ</h2><div class="grid-3"><div class="card tariff-card"><i class="fas fa-eye" style="font-size: 2.5rem; color: #cc0000;"></i><h3>Зритель</h3><div class="tariff-price">500 ₽</div><p>Поддержка команд, участие в конкурсах для зрителей, атмосфера праздника.</p></div><div class="card tariff-card"><i class="fas fa-microphone-alt" style="font-size: 2.5rem; color: #cc0000;"></i><h3>Участник</h3><div class="tariff-price">1000 ₽</div><p>Участие в квизе одного игрока.</p></div><div class="card tariff-card"><i class="fas fa-star" style="font-size: 2.5rem; color: #cc0000;"></i><h3>Участник + Группа поддержки</h3><div class="tariff-price">1500 ₽</div><p>Участие в квизе + приводи с собой до 4 человек болельщиков.</p></div></div><div style="text-align: center; margin-top: 40px;"><div class="count-badge">⚠️</div><span style="margin-left: 12px;">КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО! УСПЕЙТЕ ЗАБРОНИРОВАТЬ.</span></div></div></section>
-
-    <section id="location"><div class="container"><h2>📍 МЕСТО ПРОВЕДЕНИЯ</h2><div class="grid-2"><div><h3>Библиотечно-информационный центр им. П.И. Бартенева</h3><p><i class="fas fa-map-pin" style="color: #cc0000;"></i> ул. Ленина, 31а, Липецк, Липецкая обл., 398020</p><p style="margin-top: 20px;">Уютный зал, отличная акустика, удобная парковка.</p></div><div class="map"><iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1f3b5c5f5a2d9f2e8f3b8c9d7e6f5a4b3c2d1e0f1a2b3c4d5e6f7a8b9c0d1e2f3&source=constructor" width="100%" height="250" frameborder="0" allowfullscreen></iframe></div></div></div></section>
-
-    <!-- ИЗМЕНЁННЫЙ БЛОК СВЯЗИ -->
+    <!-- Связь (ТРЕТИЙ БЛОК) -->
     <section id="contact">
         <div class="container">
             <h2>📞 СВЯЗЬ С ОРГАНИЗАТОРАМИ</h2>
@@ -101,18 +165,71 @@
         </div>
     </section>
 
-    <div id="bookingModal" class="modal"><div class="modal-content"><span class="modal-close" id="closeModal">&times;</span><h3>🎫 БРОНИРОВАНИЕ МЕСТА</h3><div class="radio-group" id="tariffRadios"><label><input type="radio" name="tariff" value="Зритель - 500 руб"> <strong>Зритель</strong> — 500 ₽</label><label><input type="radio" name="tariff" value="Участник - 1000 руб"> <strong>Участник</strong> — 1000 ₽</label><label><input type="radio" name="tariff" value="Участник + Группа поддержки - 1500 руб"> <strong>Участник + Группа поддержки</strong> — 1500 ₽</label></div><div class="form-group"><label>ИМЯ И ФАМИЛИЯ УЧАСТНИКА *</label><input type="text" id="participantName" placeholder="Иван Иванов"></div><button id="submitBookingBtn" class="btn" style="width: 100%;" disabled>ЗАБРОНИРОВАТЬ</button>
-    <button id="modalPhonesBtn" class="btn btn-small" style="width: 100%; background: #333;">📞 Связаться с организаторами</button>
-    <div id="phonesContainer" style="display: none; margin-top: 15px; text-align: center;">
-        <div style="background: #1a1a1a; padding: 15px; border-left: 3px solid #cc0000;">
-            <strong>📞 Свяжитесь с нами:</strong><br>
-            📱 +7 (960) 140-14-45<br>
-            📱 +7 (904) 693-53-35
+    <!-- Правила (ЧЕТВЁРТЫЙ БЛОК) -->
+    <section id="rules" style="background: #020202;">
+        <div class="container">
+            <h2>📜 ПРАВИЛА ИГРЫ</h2>
+            <div class="card" style="margin-top: 30px; text-align: center;">
+                <p>Здесь будут подробные правила. Они появятся позже.</p>
+                <p style="margin-top: 12px;">Команды из 6 человек соревнуются в музыкальной эрудиции. Побеждает команда, набравшая больше всего очков.</p>
+                <p style="margin-top: 12px;">👑 Честная игра, быстрые кнопки и никаких спойлеров!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Место (ПЯТЫЙ БЛОК) -->
+    <section id="location">
+        <div class="container">
+            <h2>📍 МЕСТО ПРОВЕДЕНИЯ</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>Библиотечно-информационный центр им. П.И. Бартенева</h3>
+                    <p><i class="fas fa-map-pin" style="color: #cc0000;"></i> ул. Ленина, 31а, Липецк, Липецкая обл., 398020</p>
+                    <p style="margin-top: 20px;">Уютный зал, отличная акустика, удобная парковка.</p>
+                </div>
+                <div class="map">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1f3b5c5f5a2d9f2e8f3b8c9d7e6f5a4b3c2d1e0f1a2b3c4d5e6f7a8b9c0d1e2f3&source=constructor" width="100%" height="250" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно бронирования -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeModal">&times;</span>
+            <h3>🎫 БРОНИРОВАНИЕ МЕСТА</h3>
+            <div class="radio-group" id="tariffRadios">
+                <label><input type="radio" name="tariff" value="Зритель - 500 руб"> <strong>Зритель</strong> — 500 ₽</label>
+                <label><input type="radio" name="tariff" value="Участник - 1000 руб"> <strong>Участник</strong> — 1000 ₽</label>
+                <label><input type="radio" name="tariff" value="Участник + Группа поддержки - 1500 руб"> <strong>Участник + Группа поддержки</strong> — 1500 ₽</label>
+            </div>
+            <div class="form-group">
+                <label>ИМЯ И ФАМИЛИЯ УЧАСТНИКА *</label>
+                <input type="text" id="participantName" placeholder="Иван Иванов">
+            </div>
+            <button id="submitBookingBtn" class="btn" style="width: 100%;" disabled>ЗАБРОНИРОВАТЬ</button>
+            <button id="modalPhonesBtn" class="btn btn-small" style="width: 100%; background: #333;">📞 Связаться с организаторами</button>
+            <div id="phonesContainer" style="display: none; margin-top: 15px; text-align: center;">
+                <div style="background: #1a1a1a; padding: 15px; border-left: 3px solid #cc0000;">
+                    <strong>📞 Свяжитесь с нами:</strong><br>
+                    📱 +7 (960) 140-14-45<br>
+                    📱 +7 (904) 693-53-35
+                </div>
+            </div>
+            <p style="font-size: 0.7rem; margin-top: 20px; text-align: center;">После заполнения формы станет активной кнопка бронирования</p>
         </div>
     </div>
-    <p style="font-size: 0.7rem; margin-top: 20px; text-align: center;">После заполнения формы станет активной кнопка бронирования</p></div></div>
 
-    <footer><div class="container"><div class="social-links"><a href="https://vk.com/id38195847" target="_blank"><i class="fab fa-vk"></i></a></div><p>© 2026 Музыкальный Квиз | <a href="https://vk.com/id38195847" target="_blank" style="color: #cc0000;">ОРГАНИЗАТОР</a></p><p style="margin-top: 8px;">📍 Липецк, ул. Ленина, 31а</p></div></footer>
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://vk.com/id38195847" target="_blank"><i class="fab fa-vk"></i></a>
+            </div>
+            <p>© 2026 Музыкальный Квиз | <a href="https://vk.com/id38195847" target="_blank" style="color: #cc0000;">ОРГАНИЗАТОР</a></p>
+            <p style="margin-top: 8px;">📍 Липецк, ул. Ленина, 31а</p>
+        </div>
+    </footer>
 
     <script>
         const modal = document.getElementById('bookingModal');
@@ -169,11 +286,6 @@
         const phonesContainer = document.getElementById('phonesContainer');
         modalPhonesBtn.addEventListener('click', () => {
             phonesContainer.style.display = phonesContainer.style.display === 'none' ? 'block' : 'none';
-        });
-        
-        document.getElementById('contactNavLink').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 </body>
