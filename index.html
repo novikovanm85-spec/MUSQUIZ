@@ -76,6 +76,13 @@
             letter-spacing: 3px;
         }
 
+        .btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+            transform: none;
+            letter-spacing: 2px;
+        }
+
         .container {
             max-width: 1300px;
             margin: 0 auto;
@@ -262,12 +269,13 @@
             width: 90%;
             border: 2px solid #cc0000;
             position: relative;
-            text-align: center;
         }
 
         .modal-content h3 {
             font-family: 'Russo One', sans-serif;
             font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         .modal-close {
@@ -279,16 +287,50 @@
             color: #aaa;
         }
 
-        .selected-tariff {
-            background: #1a0000;
+        .radio-group {
+            margin: 20px 0;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .radio-group input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
             padding: 15px;
-            text-align: center;
-            margin-bottom: 25px;
-            color: #cc0000;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.3rem;
-            border-left: 3px solid #cc0000;
-            border-right: 3px solid #cc0000;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #cc0000;
         }
 
         .map {
@@ -390,26 +432,11 @@
         <div class="container">
             <h2>🎵 ПРОГРАММА МЕРОПРИЯТИЯ</h2>
             <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-time">ОТБОРОЧНЫЙ ТУР</div>
-                    <div>Вопросы и 4 ответа, разминка для команд. Определяем первых лидеров.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">ОСНОВНЫЕ ТУРЫ</div>
-                    <div>Битва команда на команду.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">МУЗЫКАЛЬНАЯ ПАУЗА</div>
-                    <div>Живое выступление, отдых для участников.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">ФИНАЛЬНЫЙ ТУР</div>
-                    <div>Битва сильнейших. Самые сложные вопросы и решающие баллы.</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">НАГРАЖДЕНИЕ</div>
-                    <div>Подсчёт очков, церемония награждения и финальное фото.</div>
-                </div>
+                <div class="timeline-item"><div class="timeline-time">ОТБОРОЧНЫЙ ТУР</div><div>Вопросы и 4 ответа, разминка для команд. Определяем первых лидеров.</div></div>
+                <div class="timeline-item"><div class="timeline-time">ОСНОВНЫЕ ТУРЫ</div><div>Битва команда на команду.</div></div>
+                <div class="timeline-item"><div class="timeline-time">МУЗЫКАЛЬНАЯ ПАУЗА</div><div>Живое выступление, отдых для участников.</div></div>
+                <div class="timeline-item"><div class="timeline-time">ФИНАЛЬНЫЙ ТУР</div><div>Битва сильнейших. Самые сложные вопросы и решающие баллы.</div></div>
+                <div class="timeline-item"><div class="timeline-time">НАГРАЖДЕНИЕ</div><div>Подсчёт очков, церемония награждения и финальное фото.</div></div>
             </div>
         </div>
     </section>
@@ -477,16 +504,25 @@
         </div>
     </section>
 
-    <!-- Модальное окно бронирования (упрощённое) -->
+    <!-- Модальное окно бронирования -->
     <div id="bookingModal" class="modal">
         <div class="modal-content">
             <span class="modal-close" id="closeModal">&times;</span>
-            <h3 style="margin-bottom: 20px;">🎫 БРОНИРОВАНИЕ МЕСТА</h3>
-            <div id="selectedTariffDisplay" class="selected-tariff"></div>
-            <form id="bookingForm">
-                <button type="submit" class="btn" style="width: 100%;">ВЫБРАТЬ ТАРИФ</button>
-            </form>
-            <p style="font-size: 0.8rem; margin-top: 20px; text-align: center;">После отправки вы перейдёте в ВК для подтверждения</p>
+            <h3>🎫 БРОНИРОВАНИЕ МЕСТА</h3>
+            
+            <div class="radio-group" id="tariffRadios">
+                <label><input type="radio" name="tariff" value="Зритель - 500 руб"> <strong>Зритель</strong> — 500 ₽</label>
+                <label><input type="radio" name="tariff" value="Участник - 1000 руб"> <strong>Участник</strong> — 1000 ₽</label>
+                <label><input type="radio" name="tariff" value="Участник + Группа поддержки - 1500 руб"> <strong>Участник + Группа поддержки</strong> — 1500 ₽</label>
+            </div>
+            
+            <div class="form-group">
+                <label>ИМЯ И ФАМИЛИЯ УЧАСТНИКА *</label>
+                <input type="text" id="participantName" placeholder="Иван Иванов">
+            </div>
+            
+            <button id="submitBookingBtn" class="btn" style="width: 100%;" disabled>ЗАБРОНИРОВАТЬ</button>
+            <p style="font-size: 0.7rem; margin-top: 20px; text-align: center;">После заполнения формы станет активной кнопка бронирования</p>
         </div>
     </div>
 
@@ -501,44 +537,57 @@
     </footer>
 
     <script>
-        let selectedTariff = '';
         const modal = document.getElementById('bookingModal');
-        const selectedTariffDisplay = document.getElementById('selectedTariffDisplay');
+        const participantNameInput = document.getElementById('participantName');
+        const submitBtn = document.getElementById('submitBookingBtn');
+        const tariffRadios = document.querySelectorAll('input[name="tariff"]');
+        let selectedTariff = '';
         
-        function openModal(tariff) {
-            selectedTariff = tariff;
-            selectedTariffDisplay.innerText = `ВЫБРАН ТАРИФ: ${selectedTariff}`;
+        function checkForm() {
+            const nameFilled = participantNameInput.value.trim() !== '';
+            const tariffSelected = Array.from(tariffRadios).some(r => r.checked);
+            submitBtn.disabled = !(nameFilled && tariffSelected);
+            if (tariffSelected) {
+                const checked = Array.from(tariffRadios).find(r => r.checked);
+                selectedTariff = checked ? checked.value : '';
+            }
+        }
+        
+        participantNameInput.addEventListener('input', checkForm);
+        tariffRadios.forEach(radio => radio.addEventListener('change', checkForm));
+        
+        function openModal() {
             modal.classList.add('active');
+            // Сбрасываем форму
+            participantNameInput.value = '';
+            tariffRadios.forEach(r => r.checked = false);
+            selectedTariff = '';
+            submitBtn.disabled = true;
         }
         
         function closeModal() {
             modal.classList.remove('active');
-            selectedTariff = '';
-            selectedTariffDisplay.innerText = '';
         }
         
-        document.querySelectorAll('[data-tariff]').forEach(btn => {
-            btn.addEventListener('click', () => openModal(btn.getAttribute('data-tariff')));
-        });
-        
-        document.getElementById('heroBookingBtn').addEventListener('click', () => openModal(''));
+        document.getElementById('heroBookingBtn').addEventListener('click', openModal);
         document.getElementById('navBookingBtn').addEventListener('click', (e) => {
             e.preventDefault();
-            openModal('');
+            openModal();
         });
         
         document.getElementById('closeModal').addEventListener('click', closeModal);
         window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
         
-        document.getElementById('bookingForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            if (!selectedTariff) { alert('Пожалуйста, сначала выберите тариф на странице'); return; }
+        submitBtn.addEventListener('click', () => {
+            const name = participantNameInput.value.trim();
+            if (!name || !selectedTariff) return;
             let msg = `🎵 НОВАЯ ЗАЯВКА НА МУЗЫКАЛЬНЫЙ КВИЗ 🎵\n\n`;
+            msg += `Участник: ${name}\n`;
             msg += `Тариф: ${selectedTariff}\n`;
             msg += `Дата: 28.05.2026 18:00\nМесто: Липецк, ул. Ленина, 31а\n\n---\nОжидайте подтверждения.`;
             window.open(`https://vk.com/id38195847?text=${encodeURIComponent(msg)}`, '_blank');
             alert('✅ Заявка сформирована! Отправьте сообщение во вкладке ВК.');
-            setTimeout(() => closeModal(), 2000);
+            closeModal();
         });
         
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
