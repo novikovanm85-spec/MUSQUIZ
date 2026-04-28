@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Музыкальный Квиз | Рок-битва 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <!-- Рок-шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Russo+One&family=Oswald:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -16,7 +17,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #000000;
-            color: #ffffff;
+            color: #e0e0e0;
             line-height: 1.5;
             scroll-behavior: smooth;
         }
@@ -29,21 +30,47 @@
             color: transparent;
         }
 
+        /* Заголовки — Russo One */
+        h1 {
+            font-family: 'Russo One', sans-serif;
+            font-size: 4rem;
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-family: 'Russo One', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #cc0000;
+            padding-left: 20px;
+        }
+
+        h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Кнопки — Bebas Neue */
         .btn {
             display: inline-block;
             background: #cc0000;
             color: white;
-            font-weight: 700;
-            padding: 16px 40px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 400;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            padding: 14px 40px;
             border-radius: 0;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 1rem;
             border: none;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 800;
         }
 
         .btn:hover {
@@ -61,28 +88,6 @@
         section {
             padding: 100px 0;
             border-bottom: 1px solid rgba(204,0,0,0.3);
-        }
-
-        h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.01em;
-            border-left: 5px solid #cc0000;
-            padding-left: 20px;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
         }
 
         /* Навбар */
@@ -107,8 +112,9 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
             color: #cc0000;
         }
 
@@ -119,10 +125,12 @@
         }
 
         .nav-links a {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
             color: white;
             text-decoration: none;
             transition: 0.3s;
-            font-weight: 600;
         }
 
         .nav-links a:hover {
@@ -130,8 +138,8 @@
         }
 
         .btn-nav {
-            padding: 8px 20px;
-            font-size: 0.9rem;
+            padding: 6px 20px;
+            font-size: 1rem;
         }
 
         /* Hero */
@@ -146,8 +154,9 @@
         .hero-badge {
             background: rgba(204,0,0,0.2);
             padding: 8px 20px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
             font-size: 0.85rem;
-            font-weight: 700;
             display: inline-block;
             margin-bottom: 20px;
             border-left: 3px solid #cc0000;
@@ -202,8 +211,8 @@
         }
 
         .tariff-price {
-            font-size: 2rem;
-            font-weight: 800;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
             color: #cc0000;
             margin: 20px 0;
         }
@@ -229,8 +238,9 @@
         }
 
         .timeline-time {
-            min-width: 140px;
+            font-family: 'Oswald', sans-serif;
             font-weight: 700;
+            min-width: 140px;
             color: #cc0000;
         }
 
@@ -262,6 +272,11 @@
             position: relative;
         }
 
+        .modal-content h3 {
+            font-family: 'Russo One', sans-serif;
+            font-size: 1.5rem;
+        }
+
         .modal-close {
             position: absolute;
             top: 20px;
@@ -278,6 +293,7 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
+            font-family: 'Oswald', sans-serif;
             font-weight: 600;
         }
 
@@ -287,7 +303,7 @@
             background: #1a1a1a;
             border: 1px solid #333;
             color: white;
-            font-family: inherit;
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
         }
 
@@ -302,7 +318,8 @@
             text-align: center;
             margin-bottom: 20px;
             color: #cc0000;
-            font-weight: bold;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
             border-left: 3px solid #cc0000;
         }
 
@@ -311,7 +328,6 @@
             overflow: hidden;
             margin-top: 30px;
             border: 2px solid #cc0000;
-            border-radius: 0;
         }
 
         iframe {
@@ -351,16 +367,16 @@
         .count-badge {
             background: #cc0000;
             padding: 5px 14px;
-            font-size: 0.8rem;
-            font-weight: bold;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.9rem;
             display: inline-block;
         }
 
-        /* Читаемый текст */
-        p, li, .card, .timeline-item, .hero-details {
+        p, .card p, .timeline-item div:not(.timeline-time) {
+            font-family: 'Inter', sans-serif;
             font-weight: 400;
             font-size: 1rem;
-            color: #e0e0e0;
+            color: #d0d0d0;
         }
 
         strong {
@@ -373,13 +389,13 @@
     <!-- Навигация -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">🎸 <span class="gradient-text">Music Quiz</span></div>
+            <div class="logo">🎸 MUSIC QUIZ</div>
             <div class="nav-links">
-                <a href="#program">Программа</a>
-                <a href="#rules">Правила</a>
-                <a href="#tariffs">Тарифы</a>
-                <a href="#location">Место</a>
-                <a href="#booking" class="btn btn-nav" id="navBookingBtn">Забронировать</a>
+                <a href="#program">ПРОГРАММА</a>
+                <a href="#rules">ПРАВИЛА</a>
+                <a href="#tariffs">ТАРИФЫ</a>
+                <a href="#location">МЕСТО</a>
+                <a href="#booking" class="btn btn-nav" id="navBookingBtn">ЗАПИСАТЬСЯ</a>
             </div>
         </div>
     </nav>
@@ -390,7 +406,7 @@
             <div class="hero-content">
                 <div class="hero-badge">⚠️ КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО</div>
                 <h1>Музыкальный<br><span class="gradient-text">Квиз | Битва</span></h1>
-                <p style="font-size: 1.2rem; margin: 20px 0 10px;">Рок-квиз, гитарные рифы, металл, панк — кто знает больше? <br>Только настоящие фанаты выживают!</p>
+                <p>Рок-квиз, гитарные рифы, металл, панк — кто знает больше? <br>Только настоящие фанаты выживают!</p>
                 
                 <div class="hero-details">
                     <div><i class="fas fa-calendar-alt"></i> <strong>28 мая 2026</strong><br>18:00</div>
@@ -403,10 +419,10 @@
         </div>
     </section>
 
-    <!-- Программа мероприятия -->
+    <!-- Программа -->
     <section id="program">
         <div class="container">
-            <h2>🎵 Программа мероприятия</h2>
+            <h2>🎵 ПРОГРАММА МЕРОПРИЯТИЯ</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-time">18:00 – 18:30</div>
@@ -432,14 +448,14 @@
         </div>
     </section>
 
-    <!-- Правила игры -->
+    <!-- Правила -->
     <section id="rules" style="background: #020202;">
         <div class="container">
-            <h2>📜 Правила игры</h2>
+            <h2>📜 ПРАВИЛА ИГРЫ</h2>
             <div class="card" style="margin-top: 30px; text-align: center;">
-                <p style="font-size: 1.1rem; margin-bottom: 15px;">Здесь будут подробные правила. Они появятся позже.</p>
-                <p>Команды из 6 человек соревнуются в музыкальной эрудиции. Побеждает команда, набравшая больше всего очков.</p>
-                <p style="margin-top: 10px;">👑 Честная игра, быстрые кнопки и никаких спойлеров!</p>
+                <p>Здесь будут подробные правила. Они появятся позже.</p>
+                <p style="margin-top: 12px;">Команды из 6 человек соревнуются в музыкальной эрудиции. Побеждает команда, набравшая больше всего очков.</p>
+                <p style="margin-top: 12px;">👑 Честная игра, быстрые кнопки и никаких спойлеров!</p>
             </div>
         </div>
     </section>
@@ -447,7 +463,7 @@
     <!-- Тарифы -->
     <section id="tariffs">
         <div class="container">
-            <h2>💰 Выберите тип участия</h2>
+            <h2>💰 ВЫБЕРИТЕ ТИП УЧАСТИЯ</h2>
             <div class="grid-3">
                 <div class="card tariff-card">
                     <i class="fas fa-microphone-alt" style="font-size: 2.5rem; color: #cc0000;"></i>
@@ -472,8 +488,8 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 40px;">
-                <div class="count-badge" style="display: inline-block; margin-right: 10px;">⚠️</div>
-                <span>Количество мест ограничено! Успейте забронировать.</span>
+                <div class="count-badge">⚠️</div>
+                <span style="margin-left: 12px;">КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО! УСПЕЙТЕ ЗАБРОНИРОВАТЬ.</span>
             </div>
         </div>
     </section>
@@ -481,7 +497,7 @@
     <!-- Место проведения -->
     <section id="location">
         <div class="container">
-            <h2>📍 Место проведения</h2>
+            <h2>📍 МЕСТО ПРОВЕДЕНИЯ</h2>
             <div class="grid-2">
                 <div>
                     <h3>Библиотечно-информационный центр им. П.И. Бартенева</h3>
@@ -496,30 +512,30 @@
         </div>
     </section>
 
-    <!-- Модальное окно бронирования -->
+    <!-- Модальное окно -->
     <div id="bookingModal" class="modal">
         <div class="modal-content">
             <span class="modal-close" id="closeModal">&times;</span>
-            <h3 style="margin-bottom: 20px;">🎫 Бронирование места</h3>
+            <h3 style="margin-bottom: 20px;">🎫 БРОНИРОВАНИЕ МЕСТА</h3>
             <div id="selectedTariffDisplay" class="selected-tariff"></div>
             <form id="bookingForm">
                 <div class="form-group">
-                    <label>Название команды *</label>
+                    <label>НАЗВАНИЕ КОМАНДЫ *</label>
                     <input type="text" id="teamName" required placeholder="Например: Громкие сердца">
                 </div>
                 <div class="form-group">
-                    <label>Имя и фамилия (капитана) *</label>
+                    <label>ИМЯ И ФАМИЛИЯ (КАПИТАН) *</label>
                     <input type="text" id="participantName" required placeholder="Иван Иванов">
                 </div>
                 <div class="form-group">
-                    <label>Количество участников *</label>
+                    <label>КОЛИЧЕСТВО УЧАСТНИКОВ *</label>
                     <input type="number" id="membersCount" value="6" min="1" max="10" required>
                 </div>
                 <div class="form-group">
-                    <label>Выбранный тариф</label>
+                    <label>ВЫБРАННЫЙ ТАРИФ</label>
                     <input type="text" id="tariffInput" readonly style="background: #2a2a2a;">
                 </div>
-                <button type="submit" class="btn" style="width: 100%;">Отправить заявку →</button>
+                <button type="submit" class="btn" style="width: 100%;">ОТПРАВИТЬ ЗАЯВКУ →</button>
             </form>
             <p style="font-size: 0.8rem; margin-top: 20px; text-align: center;">После отправки вы перейдёте в ВК для подтверждения</p>
         </div>
@@ -530,8 +546,8 @@
             <div class="social-links">
                 <a href="https://vk.com/id38195847" target="_blank"><i class="fab fa-vk"></i></a>
             </div>
-            <p style="margin-top: 20px;">© 2026 Музыкальный Квиз | <a href="https://vk.com/id38195847" target="_blank" style="color: #cc0000;">Организатор</a></p>
-            <p style="margin-top: 10px;">📍 Липецк, ул. Ленина, 31а</p>
+            <p>© 2026 Музыкальный Квиз | <a href="https://vk.com/id38195847" target="_blank" style="color: #cc0000;">ОРГАНИЗАТОР</a></p>
+            <p style="margin-top: 8px;">📍 Липецк, ул. Ленина, 31а</p>
         </div>
     </footer>
 
