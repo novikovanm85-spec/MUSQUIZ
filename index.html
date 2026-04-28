@@ -233,7 +233,7 @@
         .timeline-time {
             font-family: 'Oswald', sans-serif;
             font-weight: 700;
-            min-width: 140px;
+            min-width: 200px;
             color: #cc0000;
         }
 
@@ -262,6 +262,7 @@
             width: 90%;
             border: 2px solid #cc0000;
             position: relative;
+            text-align: center;
         }
 
         .modal-content h3 {
@@ -278,41 +279,16 @@
             color: #aaa;
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-        }
-
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 15px;
-            background: #1a1a1a;
-            border: 1px solid #333;
-            color: white;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus, .form-group select:focus {
-            outline: none;
-            border-color: #cc0000;
-        }
-
         .selected-tariff {
             background: #1a0000;
-            padding: 10px;
+            padding: 15px;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #cc0000;
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             border-left: 3px solid #cc0000;
+            border-right: 3px solid #cc0000;
         }
 
         .map {
@@ -390,7 +366,7 @@
         </div>
     </nav>
 
-    <!-- Hero блок (исправлен по вашему запросу) -->
+    <!-- Hero блок -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -409,7 +385,7 @@
         </div>
     </section>
 
-    <!-- Программа (исправлена: убраны временные маркеры, изменён текст) -->
+    <!-- Программа -->
     <section id="program">
         <div class="container">
             <h2>🎵 ПРОГРАММА МЕРОПРИЯТИЯ</h2>
@@ -450,18 +426,11 @@
         </div>
     </section>
 
-    <!-- Тарифы (исправлен тариф "Участник") -->
+    <!-- Тарифы (участник по центру) -->
     <section id="tariffs">
         <div class="container">
             <h2>💰 ВЫБЕРИТЕ ТИП УЧАСТИЯ</h2>
             <div class="grid-3">
-                <div class="card tariff-card">
-                    <i class="fas fa-microphone-alt" style="font-size: 2.5rem; color: #cc0000;"></i>
-                    <h3>Участник</h3>
-                    <div class="tariff-price">1000 ₽</div>
-                    <p>Участие в квизе одного игрока + приводи с собой до 4 человек.</p>
-                    <button class="btn" style="margin-top: 20px;" data-tariff="Участник - 1000 руб">ВЫБРАТЬ</button>
-                </div>
                 <div class="card tariff-card">
                     <i class="fas fa-eye" style="font-size: 2.5rem; color: #cc0000;"></i>
                     <h3>Зритель</h3>
@@ -470,10 +439,17 @@
                     <button class="btn" style="margin-top: 20px;" data-tariff="Зритель - 500 руб">ВЫБРАТЬ</button>
                 </div>
                 <div class="card tariff-card">
+                    <i class="fas fa-microphone-alt" style="font-size: 2.5rem; color: #cc0000;"></i>
+                    <h3>Участник</h3>
+                    <div class="tariff-price">1000 ₽</div>
+                    <p>Участие в квизе одного игрока.</p>
+                    <button class="btn" style="margin-top: 20px;" data-tariff="Участник - 1000 руб">ВЫБРАТЬ</button>
+                </div>
+                <div class="card tariff-card">
                     <i class="fas fa-star" style="font-size: 2.5rem; color: #cc0000;"></i>
                     <h3>Участник + Группа поддержки</h3>
                     <div class="tariff-price">1500 ₽</div>
-                    <p>Участие в квизе + отдельная зона для болельщиков + приветственный напиток.</p>
+                    <p>Участие в квизе + приводи с собой до 4 человек болельщиков.</p>
                     <button class="btn" style="margin-top: 20px;" data-tariff="Участник + Группа поддержки - 1500 руб">ВЫБРАТЬ</button>
                 </div>
             </div>
@@ -484,7 +460,7 @@
         </div>
     </section>
 
-    <!-- Место проведения (убрана фраза про парковку и эмодзи) -->
+    <!-- Место проведения -->
     <section id="location">
         <div class="container">
             <h2>📍 МЕСТО ПРОВЕДЕНИЯ</h2>
@@ -501,30 +477,14 @@
         </div>
     </section>
 
-    <!-- Модальное окно бронирования -->
+    <!-- Модальное окно бронирования (упрощённое) -->
     <div id="bookingModal" class="modal">
         <div class="modal-content">
             <span class="modal-close" id="closeModal">&times;</span>
             <h3 style="margin-bottom: 20px;">🎫 БРОНИРОВАНИЕ МЕСТА</h3>
             <div id="selectedTariffDisplay" class="selected-tariff"></div>
             <form id="bookingForm">
-                <div class="form-group">
-                    <label>НАЗВАНИЕ КОМАНДЫ *</label>
-                    <input type="text" id="teamName" required placeholder="Например: Громкие сердца">
-                </div>
-                <div class="form-group">
-                    <label>ИМЯ И ФАМИЛИЯ (КАПИТАН) *</label>
-                    <input type="text" id="participantName" required placeholder="Иван Иванов">
-                </div>
-                <div class="form-group">
-                    <label>КОЛИЧЕСТВО УЧАСТНИКОВ *</label>
-                    <input type="number" id="membersCount" value="6" min="1" max="10" required>
-                </div>
-                <div class="form-group">
-                    <label>ВЫБРАННЫЙ ТАРИФ</label>
-                    <input type="text" id="tariffInput" readonly style="background: #2a2a2a;">
-                </div>
-                <button type="submit" class="btn" style="width: 100%;">ОТПРАВИТЬ ЗАЯВКУ →</button>
+                <button type="submit" class="btn" style="width: 100%;">ВЫБРАТЬ ТАРИФ</button>
             </form>
             <p style="font-size: 0.8rem; margin-top: 20px; text-align: center;">После отправки вы перейдёте в ВК для подтверждения</p>
         </div>
@@ -544,22 +504,17 @@
         let selectedTariff = '';
         const modal = document.getElementById('bookingModal');
         const selectedTariffDisplay = document.getElementById('selectedTariffDisplay');
-        const tariffInput = document.getElementById('tariffInput');
         
         function openModal(tariff) {
             selectedTariff = tariff;
-            selectedTariffDisplay.innerText = `Выбран тариф: ${selectedTariff}`;
-            tariffInput.value = selectedTariff;
+            selectedTariffDisplay.innerText = `ВЫБРАН ТАРИФ: ${selectedTariff}`;
             modal.classList.add('active');
         }
         
         function closeModal() {
             modal.classList.remove('active');
-            document.getElementById('teamName').value = '';
-            document.getElementById('participantName').value = '';
-            document.getElementById('membersCount').value = '6';
+            selectedTariff = '';
             selectedTariffDisplay.innerText = '';
-            tariffInput.value = '';
         }
         
         document.querySelectorAll('[data-tariff]').forEach(btn => {
@@ -577,13 +532,10 @@
         
         document.getElementById('bookingForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const teamName = document.getElementById('teamName').value.trim();
-            const participantName = document.getElementById('participantName').value.trim();
-            const membersCount = document.getElementById('membersCount').value;
-            const tariff = tariffInput.value;
-            if (!teamName || !participantName) { alert('Пожалуйста, заполните все поля'); return; }
+            if (!selectedTariff) { alert('Пожалуйста, сначала выберите тариф на странице'); return; }
             let msg = `🎵 НОВАЯ ЗАЯВКА НА МУЗЫКАЛЬНЫЙ КВИЗ 🎵\n\n`;
-            msg += `Название команды: ${teamName}\nКапитан: ${participantName}\nКоличество участников: ${membersCount}\nТариф: ${tariff || 'Не выбран'}\nДата: 28.05.2026 18:00\nМесто: Липецк, ул. Ленина, 31а\n\n---\nОжидайте подтверждения.`;
+            msg += `Тариф: ${selectedTariff}\n`;
+            msg += `Дата: 28.05.2026 18:00\nМесто: Липецк, ул. Ленина, 31а\n\n---\nОжидайте подтверждения.`;
             window.open(`https://vk.com/id38195847?text=${encodeURIComponent(msg)}`, '_blank');
             alert('✅ Заявка сформирована! Отправьте сообщение во вкладке ВК.');
             setTimeout(() => closeModal(), 2000);
