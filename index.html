@@ -253,10 +253,38 @@
         document.getElementById('closeModal').addEventListener('click', closeModal);
         window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
         
+        // Функция отправки заявки на почту через FormSubmit
+        async function sendToEmail(name, tariff) {
+            const emailData = {
+                name: name,
+                tariff: tariff,
+                date: "28.05.2026 18:00",
+                place: "Липецк, ул. Ленина, 31а"
+            };
+            
+            try {
+                await fetch('https://formsubmit.co/ajax/novikovanm85@mail.ru', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(emailData)
+                });
+                console.log('Email отправлен');
+            } catch(e) {
+                console.log('Ошибка отправки email:', e);
+            }
+        }
+        
         submitBtn.addEventListener('click', async () => {
             const name = participantNameInput.value.trim();
             if (!name || !selectedTariff) return;
             
+            // 1. Отправляем заявку на почту (автоматически, без участия пользователя)
+            await sendToEmail(name, selectedTariff);
+            
+            // 2. Формируем сообщение для ВК
             let msg = `🎵 НОВАЯ ЗАЯВКА НА МУЗЫКАЛЬНЫЙ КВИЗ 🎵\n\n`;
             msg += `Участник: ${name}\n`;
             msg += `Тариф: ${selectedTariff}\n`;
@@ -264,32 +292,33 @@
             msg += `Место: Липецк, ул. Ленина, 31а\n\n`;
             msg += `---\nОжидайте подтверждения.`;
             
+            // 3. Копируем в буфер обмена
             try { 
                 await navigator.clipboard.writeText(msg); 
             } catch(e) { 
-                alert('❌ Не удалось скопировать текст. Напишите заявку вручную.'); 
+                alert('❌ Не удалось скопировать текст. Но заявка уже отправлена организатору на почту.'); 
                 closeModal(); 
                 return; 
             }
             
-            // Показываем инструкцию и даём время прочитать
+            // 4. Показываем инструкцию и даём время прочитать
             instructionBox.innerHTML = `
                 <div class="instruction-text">
-                    <strong>✅ Текст заявки скопирован в буфер обмена!</strong><br><br>
-                    📨 Сейчас откроется диалог с организатором.<br>
-                    📋 Вставьте текст сообщения (Ctrl+V / долгое нажатие → Вставить).<br>
+                    <strong>✅ ЗАЯВКА ОТПРАВЛЕНА ОРГАНИЗАТОРУ НА ПОЧТУ!</strong><br><br>
+                    📨 Текст заявки также скопирован в буфер обмена.<br>
+                    📋 Вставьте его в диалог с организатором (Ctrl+V / долгое нажатие → Вставить).<br>
                     ✉️ Отправьте — и заявка будет принята.
                 </div>
             `;
             instructionBox.style.display = 'block';
             
-            // >>> ЗДЕСЬ ИЗМЕНЕНИЕ: 4 секунды → 10 секунд <<<
+            // 5. Через 10 секунд открываем ВК и закрываем окно
             setTimeout(() => {
                 window.location.href = 'https://vk.com/im?sel=38195847';
                 setTimeout(() => {
                     closeModal();
                 }, 500);
-            }, 10000);  // 10000 миллисекунд = 10 секунд
+            }, 10000);
         });
         
         const modalPhonesBtn = document.getElementById('modalPhonesBtn');
