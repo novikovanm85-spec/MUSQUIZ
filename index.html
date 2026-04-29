@@ -17,7 +17,6 @@
             min-height: 100vh;
             position: relative;
         }
-        /* Красные рок-акценты на фоне */
         body::before {
             content: "";
             position: fixed;
@@ -54,7 +53,7 @@
         .btn:disabled { background: #555; cursor: not-allowed; transform: none; letter-spacing: 2px; }
         .btn-small { font-size: 1rem; padding: 10px 25px; background: #333; margin-top: 10px; }
         .container { max-width: 1300px; margin: 0 auto; padding: 0 24px; }
-        section { padding: 100px 0; border-bottom: 1px solid rgba(204,0,0,0.3); }
+        section { padding: 80px 0; border-bottom: 1px solid rgba(204,0,0,0.3); }
         .navbar { padding: 20px 0; position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 2px solid #cc0000; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1300px; margin: 0 auto; padding: 0 24px; flex-wrap: wrap; gap: 15px; }
         .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: #cc0000; }
@@ -62,7 +61,13 @@
         .nav-links a { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1px; color: white; text-decoration: none; transition: 0.3s; }
         .nav-links a:hover { color: #cc0000; }
         .btn-nav { padding: 6px 20px; font-size: 1rem; }
-        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            padding-bottom: 60px;
+        }
         .hero-badge { background: rgba(204,0,0,0.2); padding: 8px 20px; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.85rem; display: inline-block; margin-bottom: 20px; border-left: 3px solid #cc0000; }
         .hero-content { max-width: 800px; }
         .hero-details { display: flex; flex-wrap: wrap; gap: 30px; margin: 30px 0; }
@@ -108,14 +113,23 @@
             border-radius: 8px;
             color: #ffffff;
         }
+        /* Мобильная адаптация */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.6rem; }
-            section { padding: 60px 0; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.5rem; }
+            section { padding: 50px 0; }
+            .hero { padding-top: 120px; padding-bottom: 40px; min-height: auto; }
+            .hero-content p { font-size: 1rem; }
+            .hero-details { gap: 15px; font-size: 0.85rem; }
             .nav-container { flex-direction: column; }
-            .nav-links { justify-content: center; gap: 15px; }
+            .nav-links { justify-content: center; gap: 12px; flex-wrap: wrap; }
+            .nav-links a { font-size: 0.8rem; }
             .timeline-item { flex-direction: column; gap: 8px; }
             .timeline-time { min-width: auto; }
+            .btn { padding: 10px 25px; font-size: 1rem; }
+            .card { padding: 20px; }
+            .tariff-price { font-size: 1.6rem; }
+            .grid-3 { gap: 15px; }
         }
     </style>
 </head>
